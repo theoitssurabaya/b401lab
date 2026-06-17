@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useLanguage, buildLangUrl, type Language } from "../context/LanguageContext";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useLanguage, type Language } from "../context/LanguageContext";
 import { translations } from "../contents/translations";
 
 export function Navbar() {
@@ -7,10 +8,13 @@ export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { lang } = useLanguage();
   const t = translations[lang].nav;
+  const navigate = useNavigate();
+  const location = useLocation();
 
   function switchLang(targetLang: Language) {
-    const url = buildLangUrl(targetLang, window.location.pathname);
-    window.location.href = url;
+    // Swap the lang segment at the start of the path, keep everything else
+    const newPath = location.pathname.replace(/^\/(en|id)/, `/${targetLang}`);
+    navigate(newPath + location.search + location.hash);
   }
 
   useEffect(() => {
