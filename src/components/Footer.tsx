@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 import { translations } from "../contents/translations";
-import Logo from "../assets/Logo.png";
+import Logo from "../assets/logo/Logo.png";
 
 export function Footer() {
   const { lang } = useLanguage();
@@ -25,16 +25,16 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-3 mb-4">
+            <Link to={`/${lang}`} onClick={() => window.scrollTo(0, 0)} className="flex items-center gap-3 mb-4 group cursor-pointer">
               <img 
                 src={Logo} 
                 alt="B401 Logo" 
-                className="w-10 h-10 object-contain rounded-xl drop-shadow-[0_0_8px_rgba(255,255,255,0.1)]"
+                className="w-10 h-10 object-contain rounded-xl drop-shadow-[0_0_8px_rgba(255,255,255,0.1)] group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.3)] transition-all duration-300"
               />
-              <span className="font-display font-semibold text-zinc-900 text-sm leading-tight whitespace-pre-line">
+              <span className="font-display font-semibold text-zinc-900 text-sm leading-tight whitespace-pre-line group-hover:text-zinc-700 transition-colors">
                 {t.labName}
               </span>
-            </div>
+            </Link>
             <p className="text-zinc-500 text-sm leading-relaxed">{t.tagline}</p>
           </div>
 
@@ -43,7 +43,7 @@ export function Footer() {
             <h4 className="font-display font-semibold text-zinc-700 text-sm uppercase tracking-wider mb-4">
               {t.quickLinksLabel}
             </h4>
-            <ul className="space-y-2">
+            <ul className="grid grid-cols-3 gap-y-2 gap-x-4">
               {quickLinks.map((link) => (
                 <li key={link.path}>
                   <Link to={`/${lang}/${link.path}`} className="text-zinc-500 hover:text-zinc-700 text-sm transition-colors duration-200">

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation, Link, useParams } from "react-router-dom";
 import { useLanguage, type Language } from "../context/LanguageContext";
 import { translations } from "../contents/translations";
-import Logo from "../assets/Logo.png";
+import Logo from "../assets/logo/Logo.png";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -46,7 +46,7 @@ export function Navbar() {
     >
       <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <Link to={`/${lang}`} className="flex items-center gap-3 group">
+        <Link to={`/${lang}`} onClick={() => window.scrollTo(0, 0)} className="flex items-center gap-3 group">
           <img 
             src={Logo} 
             alt="B401 Logo" 

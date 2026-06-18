@@ -1,6 +1,7 @@
 import React from "react";
 import { useLanguage } from "../context/LanguageContext";
 import { translations } from "../contents/translations";
+import { AnimatedCounter } from "./AnimatedCounter";
 
 export function EquipmentSection() {
   const { lang } = useLanguage();
@@ -43,7 +44,7 @@ export function EquipmentSection() {
             {t.labFeatures.map((feat) => (
               <div key={feat.title} className="text-center">
                 <div className="text-3xl mb-2">{feat.icon}</div>
-                <div className="font-display font-bold text-3xl text-zinc-900 mb-1">{feat.value}</div>
+                <div className="font-display font-bold text-3xl text-zinc-900 mb-1"><AnimatedCounter value={feat.value} /></div>
                 <div className="text-zinc-900 font-medium text-sm mb-1">{feat.title}</div>
                 <div className="text-zinc-500 text-xs">{feat.desc}</div>
               </div>

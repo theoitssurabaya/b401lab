@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 import { translations } from "../contents/translations";
 import { handleHeroHeading } from "../contents/HeroContent/handleHeading";
+import { AnimatedCounter } from "./AnimatedCounter";
 
 export function HeroSection() {
   const { lang } = useLanguage();
@@ -11,7 +12,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
+      className="relative flex flex-col items-center pt-16 pb-32 overflow-hidden"
     >
       {/* Solid background subtle grid pattern could go here, but keeping it clean for matte dark */}
 
@@ -67,7 +68,7 @@ export function HeroSection() {
         >
           {t.stats.map((stat) => (
             <div key={stat.label} className="text-center">
-              <div className="font-display font-bold text-3xl text-zinc-900">{stat.value}</div>
+              <div className="font-display font-bold text-3xl text-zinc-900"><AnimatedCounter value={stat.value} /></div>
               <div className="text-zinc-500 text-sm mt-1">{stat.label}</div>
             </div>
           ))}
