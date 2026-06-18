@@ -10,8 +10,8 @@ export function App() {
         {/* Redirect bare root to English */}
         <Route path="/" element={<Navigate to="/en" replace />} />
 
-        {/* Language-prefixed landing page: /en and /id */}
-        <Route path="/:lang" element={<LandingPage />} />
+        {/* Language-prefixed landing page: /en, /en/about, etc. */}
+        <Route path="/:lang/:section?" element={<LandingPage />} />
 
         {/* Fallback: redirect any unknown path to English */}
         <Route path="*" element={<Navigate to="/en" replace />} />

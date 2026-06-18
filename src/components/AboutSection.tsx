@@ -22,18 +22,18 @@ export function AboutSection() {
   const t = translations[lang].about;
 
   return (
-    <section id="about" className="section-padding bg-slate-900/50">
+    <section id="about" className="section-padding relative">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-16">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-sm font-medium mb-4">
+        <div className="text-center mb-16 animate-fade-in" style={{ animationDelay: "0.1s" }}>
+          <span className="inline-block px-4 py-1.5 rounded-full bg-zinc-100 border border-zinc-200 text-zinc-700 text-sm font-medium mb-4">
             {t.sectionLabel}
           </span>
-          <h2 className="font-display font-bold text-4xl md:text-5xl text-white mb-5">
+          <h2 className="font-display font-bold text-4xl md:text-5xl text-zinc-900 mb-5">
             {t.heading}{" "}
-            <span className="gradient-text">{t.headingAccent}</span>
+            <span className="text-zinc-900">{t.headingAccent}</span>
           </h2>
-          <p className="text-slate-400 text-lg max-w-3xl mx-auto leading-relaxed">
+          <p className="text-zinc-600 text-lg max-w-3xl mx-auto leading-relaxed">
             {t.body}
           </p>
         </div>
@@ -43,13 +43,14 @@ export function AboutSection() {
           {t.highlights.map((item, idx) => (
             <div
               key={item.title}
-              className="card-glass rounded-2xl p-6 hover:bg-white/10 hover:border-cyan-500/30 transition-all duration-300 group"
+              className="card-glass rounded-2xl p-6 hover:bg-zinc-100 hover:border-zinc-200 transition-all duration-300 group animate-fade-in"
+              style={{ animationDelay: `${0.2 + idx * 0.1}s` }}
             >
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-600/20 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-12 h-12 rounded-xl bg-zinc-100 border border-zinc-200 flex items-center justify-center text-zinc-700 mb-4 group-hover:scale-110 transition-transform duration-300">
                 {ICONS[idx]}
               </div>
-              <h3 className="font-display font-semibold text-white text-lg mb-2">{item.title}</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">{item.desc}</p>
+              <h3 className="font-display font-semibold text-zinc-900 text-lg mb-2">{item.title}</h3>
+              <p className="text-zinc-600 text-sm leading-relaxed">{item.desc}</p>
             </div>
           ))}
         </div>
