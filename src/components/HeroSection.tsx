@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { useLanguage } from "../context/LanguageContext";
 import { translations } from "../contents/translations";
 import { handleHeroHeading } from "../contents/HeroContent/handleHeading";
@@ -24,26 +25,41 @@ export function HeroSection() {
       {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-100 border border-zinc-200 text-zinc-700 text-sm font-medium mb-8 animate-fade-in">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-100 border border-zinc-200 text-zinc-700 text-sm font-medium mb-8"
+        >
           <span className="w-2 h-2 rounded-full bg-zinc-400 animate-pulse" />
           {t.badge}
-        </div>
+        </motion.div>
 
         {/* Main heading */}
-        {handleHeroHeading(lang)}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          {handleHeroHeading(lang)}
+        </motion.div>
 
         {/* Tagline */}
-        <p
-          className="text-zinc-600 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in"
-          style={{ animationDelay: "0.15s" }}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="text-zinc-600 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
         >
           {t.tagline}
-        </p>
+        </motion.p>
 
         {/* CTAs */}
-        <div
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in"
-          style={{ animationDelay: "0.3s" }}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
           <Link
             to={`/${lang}/research`}
@@ -55,16 +71,18 @@ export function HeroSection() {
           <Link
             to={`/${lang}/about`}
             id="hero-about-btn"
-            className="px-8 py-3.5 rounded-xl border border-zinc-300 text-zinc-900 font-semibold hover:bg-zinc-100 hover:border-zinc-400 transition-all duration-300"
+            className="px-8 py-3.5 rounded-xl border border-zinc-300 text-zinc-900 font-semibold hover:bg-zinc-100 hover:border-zinc-400 transition-all duration-300 hover:-translate-y-0.5"
           >
             {t.aboutLab}
           </Link>
-        </div>
+        </motion.div>
 
         {/* Stats */}
-        <div
-          className="mt-20 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-3xl mx-auto animate-fade-in"
-          style={{ animationDelay: "0.45s" }}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="mt-20 grid grid-cols-2 sm:grid-cols-4 gap-6 max-w-3xl mx-auto"
         >
           {t.stats.map((stat) => (
             <div key={stat.label} className="text-center">
@@ -72,7 +90,7 @@ export function HeroSection() {
               <div className="text-zinc-500 text-sm mt-1">{stat.label}</div>
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

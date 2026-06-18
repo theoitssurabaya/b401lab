@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation, Link, useParams } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage, type Language } from "../context/LanguageContext";
 import { translations } from "../contents/translations";
 import Logo from "../assets/logo/Logo.png";
@@ -38,10 +39,10 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-4 ${
         scrolled
-          ? "bg-white/60 backdrop-blur-xl border-b border-white/60 py-3 shadow-sm"
-          : "bg-transparent py-5"
+          ? "bg-white/60 backdrop-blur-xl"
+          : "bg-transparent"
       }`}
     >
       <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between">
@@ -157,31 +158,41 @@ export function Navbar() {
       </nav>
 
       {/* Mobile Menu */}
-      <div className={`md:hidden transition-all duration-300 overflow-hidden ${menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}>
-        <div className="bg-white/95 backdrop-blur-lg border-t border-zinc-200 px-6 py-4 flex flex-col gap-1">
-          {navLinks.map((link) => (
-            <Link
-              key={link.path}
-              to={`/${lang}/${link.path === "home" ? "" : link.path}`}
-              onClick={() => setMenuOpen(false)}
-              className={`px-4 py-3 text-sm rounded-lg transition-all duration-200 ${
-                activeSection === link.path
-                  ? "text-zinc-900 bg-zinc-100 font-medium"
-                  : "text-zinc-700 hover:text-zinc-900 hover:bg-white"
-              }`}
-            >
-              {link.label}
-            </Link>
-          ))}
-          <Link
-            to={`/${lang}/contact`}
-            onClick={() => setMenuOpen(false)}
-            className="mt-2 px-4 py-3 text-center rounded-lg bg-zinc-900 text-white text-sm font-medium"
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="md:hidden overflow-hidden bg-white/95 backdrop-blur-lg border-t border-zinc-200"
           >
-            {t.joinUs}
-          </Link>
-        </div>
-      </div>
+            <div className="px-6 py-4 flex flex-col gap-1">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.path}
+                  to={`/${lang}/${link.path === "home" ? "" : link.path}`}
+                  onClick={() => setMenuOpen(false)}
+                  className={`px-4 py-3 text-sm rounded-lg transition-all duration-200 ${
+                    activeSection === link.path
+                      ? "text-zinc-900 bg-zinc-100 font-medium"
+                      : "text-zinc-700 hover:text-zinc-900 hover:bg-white"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <Link
+                to={`/${lang}/contact`}
+                onClick={() => setMenuOpen(false)}
+                className="mt-2 px-4 py-3 text-center rounded-lg bg-zinc-900 text-white text-sm font-medium"
+              >
+                {t.joinUs}
+              </Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

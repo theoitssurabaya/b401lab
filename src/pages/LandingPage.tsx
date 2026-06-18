@@ -11,6 +11,7 @@ import { EquipmentSection } from "../components/EquipmentSection";
 import { ContactSection } from "../components/ContactSection";
 import { Footer } from "../components/Footer";
 import { LanguageProvider, SUPPORTED_LANGS, type Language } from "../context/LanguageContext";
+import { motion, AnimatePresence } from "framer-motion";
 
 export function LandingPage() {
   const { lang, section } = useParams<{ lang: string; section?: string }>();
@@ -33,16 +34,24 @@ export function LandingPage() {
         <div className="relative z-10 flex flex-col min-h-screen">
           <Navbar />
           <main className="flex-1 pt-24">
-            <div key={section || "home"} className="animate-fade-in">
-              {(!section || section === "home") && <HeroSection />}
-              {section === "about" && <AboutSection />}
-              {section === "research" && <ResearchSection />}
-              {section === "practicums" && <PracticumsSection />}
-              {section === "projects" && <ProjectsSection />}
-              {section === "members" && <MembersSection />}
-              {section === "equipment" && <EquipmentSection />}
-              {section === "contact" && <ContactSection />}
-            </div>
+            <AnimatePresence mode="wait">
+              <motion.div 
+                key={section || "home"}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+              >
+                {(!section || section === "home") && <HeroSection />}
+                {section === "about" && <AboutSection />}
+                {section === "research" && <ResearchSection />}
+                {section === "practicums" && <PracticumsSection />}
+                {section === "projects" && <ProjectsSection />}
+                {section === "members" && <MembersSection />}
+                {section === "equipment" && <EquipmentSection />}
+                {section === "contact" && <ContactSection />}
+              </motion.div>
+            </AnimatePresence>
           </main>
           <Footer />
         </div>

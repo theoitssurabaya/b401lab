@@ -1,6 +1,7 @@
 import React from "react";
 import { useLanguage } from "../context/LanguageContext";
 import { translations } from "../contents/translations";
+import { FadeIn } from "./FadeIn";
 
 const ICONS = [
   <svg key="research" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -25,7 +26,8 @@ export function AboutSection() {
     <section id="about" className="section-padding relative">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-16 animate-fade-in" style={{ animationDelay: "0.1s" }}>
+        {/* Header */}
+        <FadeIn delay={0.1} className="text-center mb-16">
           <span className="inline-block px-4 py-1.5 rounded-full bg-zinc-100 border border-zinc-200 text-zinc-700 text-sm font-medium mb-4">
             {t.sectionLabel}
           </span>
@@ -36,22 +38,22 @@ export function AboutSection() {
           <p className="text-zinc-600 text-lg max-w-3xl mx-auto leading-relaxed">
             {t.body}
           </p>
-        </div>
+        </FadeIn>
 
         {/* Feature grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {t.highlights.map((item, idx) => (
-            <div
+            <FadeIn
               key={item.title}
-              className="card-glass rounded-2xl p-6 hover:bg-zinc-100 hover:border-zinc-200 transition-all duration-300 group animate-fade-in"
-              style={{ animationDelay: `${0.2 + idx * 0.1}s` }}
+              delay={0.2 + idx * 0.1}
+              className="card-glass rounded-2xl p-6 hover:bg-zinc-100 hover:border-zinc-200 transition-all duration-300 group"
             >
               <div className="w-12 h-12 rounded-xl bg-zinc-100 border border-zinc-200 flex items-center justify-center text-zinc-700 mb-4 group-hover:scale-110 transition-transform duration-300">
                 {ICONS[idx]}
               </div>
               <h3 className="font-display font-semibold text-zinc-900 text-lg mb-2">{item.title}</h3>
               <p className="text-zinc-600 text-sm leading-relaxed">{item.desc}</p>
-            </div>
+            </FadeIn>
           ))}
         </div>
       </div>
