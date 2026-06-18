@@ -2,6 +2,7 @@ import React from "react";
 import { useLanguage } from "../context/LanguageContext";
 import { translations } from "../contents/translations";
 import { FadeIn } from "./FadeIn";
+import robotImg from "../assets/robots/robodog.png";
 
 const ICONS = [
   <svg key="research" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -27,7 +28,11 @@ export function AboutSection() {
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         {/* Header */}
-        <FadeIn delay={0.1} className="text-center mb-16">
+        <FadeIn delay={0.1} className="text-center mb-16 relative">
+          {/* Decorative image */}
+          <div className="absolute -top-10 left-0 w-48 md:w-64 opacity-50 hidden lg:block -translate-x-1/3 pointer-events-none">
+            <img src={robotImg} alt="Robo Dog" className="w-full h-full object-contain robot-img-transparent animate-float" />
+          </div>
           <span className="inline-block px-4 py-1.5 rounded-full bg-zinc-100 border border-zinc-200 text-zinc-700 text-sm font-medium mb-4">
             {t.sectionLabel}
           </span>

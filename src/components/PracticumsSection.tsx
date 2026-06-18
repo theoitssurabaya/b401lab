@@ -1,15 +1,7 @@
 import React from "react";
 import { useLanguage } from "../context/LanguageContext";
 import { translations } from "../contents/translations";
-
-const LEVEL_COLORS: Record<string, string> = {
-  Beginner: "text-neutral-700 bg-neutral-200/50 border-neutral-300",
-  Intermediate: "text-zinc-600 bg-zinc-100 border-zinc-200",
-  Advanced: "text-zinc-700 bg-zinc-200/50 border-zinc-300",
-  Pemula: "text-neutral-700 bg-neutral-200/50 border-neutral-300",
-  Menengah: "text-zinc-600 bg-zinc-100 border-zinc-200",
-  Lanjutan: "text-zinc-700 bg-zinc-200/50 border-zinc-300",
-};
+import robotImg from "../assets/robots/nao.png";
 
 export function PracticumsSection() {
   const { lang } = useLanguage();
@@ -19,7 +11,11 @@ export function PracticumsSection() {
     <section id="practicums" className="section-padding relative">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-16 animate-fade-in" style={{ animationDelay: "0.1s" }}>
+        <div className="text-center mb-16 animate-fade-in relative" style={{ animationDelay: "0.1s" }}>
+          {/* Decorative images */}
+          <div className="absolute top-0 left-0 w-48 md:w-64 opacity-40 hidden lg:block -translate-x-1/4 pointer-events-none">
+            <img src={robotImg} alt="Nao Robot" className="w-full h-full object-contain animate-float" />
+          </div>
           <span className="inline-block px-4 py-1.5 rounded-full bg-neutral-200/50 border border-neutral-300 text-neutral-700 text-sm font-medium mb-4">
             {t.sectionLabel}
           </span>
@@ -38,23 +34,12 @@ export function PracticumsSection() {
               style={{ animationDelay: `${0.2 + idx * 0.1}s` }}
             >
               <div className="flex flex-col md:flex-row md:items-center gap-4">
-                {/* Index & code */}
-                <div className="flex items-center gap-4 md:w-24 shrink-0">
-                  <span className="w-10 h-10 rounded-lg bg-white border border-zinc-200 flex items-center justify-center text-zinc-500 font-mono text-sm font-medium">
-                    {String(idx + 1).padStart(2, "0")}
-                  </span>
-                  <span className="text-zinc-600 font-mono text-xs">{p.code}</span>
-                </div>
-
                 {/* Main content */}
                 <div className="flex-1 min-w-0">
                   <div className="flex flex-wrap items-center gap-3 mb-2">
                     <h3 className="font-display font-semibold text-zinc-900 text-xl">{p.title}</h3>
-                    <span className={`px-2.5 py-0.5 rounded-full border text-xs font-medium ${LEVEL_COLORS[p.level] ?? "text-zinc-600 bg-white border-zinc-200"}`}>
-                      {p.level}
-                    </span>
                   </div>
-                  <p className="text-zinc-600 text-sm leading-relaxed mb-3">{p.desc}</p>
+                  {p.desc && <p className="text-zinc-600 text-sm leading-relaxed mb-3">{p.desc}</p>}
                   <div className="flex flex-wrap gap-2">
                     {p.topics.map((topic) => (
                       <span key={topic} className="px-2.5 py-1 rounded-lg bg-white border border-zinc-200 text-zinc-600 text-xs">

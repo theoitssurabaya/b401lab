@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useLanguage, type Language } from "../context/LanguageContext";
 import { translations } from "../contents/translations";
-import type { I_lecturers } from "@/contents/MembersContent/memberList";
+import type { I_lecturers, I_assistant } from "@/contents/MembersContent/memberList";
 import { AnimatedCounter } from "./AnimatedCounter";
+import robotImg from "../assets/robots/ur.png";
 
 const STUDENT_ROLE_COLORS = [
   "from-zinc-700 to-zinc-900",
@@ -15,14 +16,21 @@ export function MembersSection() {
   const t = translations[lang].members;
   const [selectedLecturer, setSelectedLecturer] = useState<I_lecturers | null>(null);
 
-  function handleLecturerLang(language: Language, lecturers: I_lecturers){
-    if(language == "en")
-    {
-      return {role: lecturers.role.en, specialty: lecturers.specialty.en};
+  function handleLecturerLang(language: Language, lecturers: I_lecturers) {
+    if (language == "en") {
+      return { role: lecturers.role.en, specialty: lecturers.specialty.en };
     }
-    else if(language == "id")
-    {
-      return {role: lecturers.role.id, specialty: lecturers.specialty.id}
+    else if (language == "id") {
+      return { role: lecturers.role.id, specialty: lecturers.specialty.id }
+    }
+  }
+
+  function handleAssistantLang(language: Language, assistant: I_assistant) {
+    if (language == "en") {
+      return { role: assistant.role.en };
+    }
+    else if (language == "id") {
+      return { role: assistant.role.id };
     }
   }
 
@@ -30,7 +38,11 @@ export function MembersSection() {
     <section id="members" className="section-padding relative">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-16 animate-fade-in" style={{ animationDelay: "0.1s" }}>
+        <div className="text-center mb-16 animate-fade-in relative" style={{ animationDelay: "0.1s" }}>
+          {/* Decorative image */}
+          <div className="absolute top-0 left-0 w-48 md:w-64 opacity-40 hidden lg:block -translate-x-1/4 pointer-events-none">
+            <img src={robotImg} alt="UR Robot" className="w-full h-full object-contain robot-img-transparent animate-float" style={{ animationDelay: "0.5s" }} />
+          </div>
           <span className="inline-block px-4 py-1.5 rounded-full bg-zinc-100 border border-zinc-200 text-zinc-600 text-sm font-medium mb-4">
             {t.sectionLabel}
           </span>
@@ -57,8 +69,8 @@ export function MembersSection() {
                   {/* Photo Section */}
                   <div className="aspect-[4/5] w-full bg-zinc-200 relative overflow-hidden">
                     {lecturer.imageUrl ? (
-                      <img 
-                        src={lecturer.imageUrl} 
+                      <img
+                        src={lecturer.imageUrl}
                         alt={lecturer.name}
                         className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
                       />
@@ -89,11 +101,11 @@ export function MembersSection() {
         </div>
 
         {/* Students stats */}
-        <div>
-          <h3 className="font-display font-semibold text-zinc-700 text-sm uppercase tracking-wider mb-6 animate-fade-in" style={{ animationDelay: "0.4s" }}>
+        <div className="mb-14">
+          <h3 className="font-display font-semibold text-zinc-700 text-sm uppercase tracking-wider mb-6 text-center animate-fade-in" style={{ animationDelay: "0.4s" }}>
             {t.studentsLabel}
           </h3>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 max-w-2xl mx-auto gap-6">
             {t.studentRoles.map((role, idx) => (
               <div
                 key={role.label}
@@ -109,21 +121,60 @@ export function MembersSection() {
             ))}
           </div>
         </div>
+
+        {/* Assistants Grid */}
+        <div>
+          <h3 className="font-display font-semibold text-zinc-700 text-sm uppercase tracking-wider mb-6 animate-fade-in" style={{ animationDelay: "0.6s" }}>
+            {t.assistantsLabel}
+          </h3>
+          <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 sm:gap-4">
+            {t.assistants.map((assistant, idx) => (
+              <div
+                key={idx}
+                className="card-glass rounded-2xl overflow-hidden border border-zinc-200 transition-all duration-300 flex flex-col animate-fade-in cursor-default group shadow-sm"
+                style={{ animationDelay: `${0.7 + idx * 0.1}s` }}
+              >
+                {/* Photo Section */}
+                <div className="aspect-[4/5] w-full bg-zinc-200 relative overflow-hidden">
+                  {assistant.imageUrl ? (
+                    <img
+                      src={assistant.imageUrl}
+                      alt={assistant.name}
+                      className="w-full h-full object-cover object-top"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-zinc-800 flex items-center justify-center text-white font-display font-bold text-3xl md:text-4xl">
+                      {assistant.initials}
+                    </div>
+                  )}
+                </div>
+
+                {/* Info Section */}
+                <div className="p-3 flex-1 flex flex-col justify-between">
+                  <div>
+                    <p className="text-zinc-900 font-semibold text-xs leading-snug">{assistant.name}</p>
+                    <p className="text-zinc-500 text-[10px] mt-0.5">{handleAssistantLang(lang, assistant)?.role}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* Lecturer Details Modal */}
       {selectedLecturer && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 animate-fade-in" style={{ animationDuration: '0.15s', animationDelay: '0s' }}>
           {/* Backdrop */}
-          <div 
-            className="absolute inset-0 bg-zinc-900/40 backdrop-blur-sm transition-opacity" 
+          <div
+            className="absolute inset-0 bg-zinc-900/40 backdrop-blur-sm transition-opacity"
             onClick={() => setSelectedLecturer(null)}
           />
-          
+
           {/* Modal Content */}
           <div className="relative w-full max-w-3xl max-h-[90vh] bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row border border-zinc-200/50">
             {/* Close Button */}
-            <button 
+            <button
               onClick={() => setSelectedLecturer(null)}
               className="absolute top-4 right-4 z-10 w-8 h-8 flex items-center justify-center rounded-full bg-black/10 hover:bg-black/20 text-zinc-800 transition-colors"
             >
@@ -135,8 +186,8 @@ export function MembersSection() {
             {/* Modal Image Area */}
             <div className="w-full md:w-2/5 md:min-h-[400px] shrink-0 bg-zinc-100">
               {selectedLecturer.imageUrl ? (
-                <img 
-                  src={selectedLecturer.imageUrl} 
+                <img
+                  src={selectedLecturer.imageUrl}
                   alt={selectedLecturer.name}
                   className="w-full h-full object-cover object-top"
                 />
@@ -159,7 +210,7 @@ export function MembersSection() {
               <div className="space-y-6">
                 {selectedLecturer.education && selectedLecturer.education.length > 0 && (
                   <div>
-                    <h4 className="text-xs font-bold text-zinc-900 uppercase tracking-wider mb-3">Education</h4>
+                    <h4 className="text-xs font-bold text-zinc-900 uppercase tracking-wider mb-3">{(t as any).modalEducationLabel || "Education"}</h4>
                     <ul className="space-y-2">
                       {selectedLecturer.education.map((edu, i) => (
                         <li key={i} className="text-sm text-zinc-600 flex items-start gap-2.5">
@@ -170,10 +221,10 @@ export function MembersSection() {
                     </ul>
                   </div>
                 )}
-                
+
                 {selectedLecturer.expertise && (
                   <div>
-                    <h4 className="text-xs font-bold text-zinc-900 uppercase tracking-wider mb-3">Research Interests</h4>
+                    <h4 className="text-xs font-bold text-zinc-900 uppercase tracking-wider mb-3">{(t as any).modalResearchLabel || "Research Interests"}</h4>
                     <p className="text-sm text-zinc-600 leading-relaxed">
                       {selectedLecturer.expertise}
                     </p>

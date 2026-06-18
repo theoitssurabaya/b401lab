@@ -2,7 +2,7 @@ export const aboutID = {
   sectionLabel: "Tentang Kami",
   heading: "Di Mana Inovasi Bertemu",
   headingAccent: "Kecerdasan",
-  body: "B401 adalah Laboratorium Robotika dan Sistem Cerdas milik Departemen Teknik Elektro dan Teknologi Informasi, Universitas Gadjah Mada. Kami menjembatani kesenjangan antara fondasi teori dan aplikasi rekayasa praktis.",
+  body: "B401 adalah Laboratorium Robotika dan Sistem Cerdas milik Departemen Teknik Komputer, Institut Teknologi Sepuluh Nopember. Kami menjembatani kesenjangan antara fondasi teori dan aplikasi rekayasa praktis.",
   highlights: [
     {
       title: "Penelitian Mutakhir",

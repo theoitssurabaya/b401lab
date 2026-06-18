@@ -2,7 +2,7 @@ export const aboutEN = {
   sectionLabel: "About Us",
   heading: "Where Innovation Meets",
   headingAccent: "Intelligence",
-  body: "B401 is the Robotics and Intelligent Systems Laboratory of the Department of Electrical and Information Engineering, Universitas Gadjah Mada. We bridge the gap between theoretical foundations and practical engineering applications.",
+  body: "B401 is the Robotics and Intelligent Systems Laboratory of the Department of Computer Engineering, Sepuluh Nopember Institute of Technology. We bridge the gap between theoretical foundations and practical engineering applications.",
   highlights: [
     {
       title: "Cutting-Edge Research",

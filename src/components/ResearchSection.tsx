@@ -1,6 +1,7 @@
 import React from "react";
 import { useLanguage } from "../context/LanguageContext";
 import { translations } from "../contents/translations";
+import robotImg from "../assets/robots/turtlebot.png";
 
 const AREA_STYLES = [
   { color: "from-zinc-400 to-zinc-500", badge: "bg-zinc-100 text-zinc-700 border-zinc-200", accent: "border-zinc-200 hover:border-zinc-400" },
@@ -19,7 +20,11 @@ export function ResearchSection() {
     <section id="research" className="section-padding">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-16 animate-fade-in" style={{ animationDelay: "0.1s" }}>
+        <div className="text-center mb-16 animate-fade-in relative" style={{ animationDelay: "0.1s" }}>
+          {/* Decorative image */}
+          <div className="absolute top-0 right-0 w-48 md:w-64 opacity-40 hidden lg:block translate-x-1/4 pointer-events-none">
+            <img src={robotImg} alt="Turtlebot" className="w-full h-full object-contain robot-img-transparent animate-float" style={{ animationDelay: "1s" }} />
+          </div>
           <span className="inline-block px-4 py-1.5 rounded-full bg-zinc-200/50 border border-zinc-300 text-zinc-700 text-sm font-medium mb-4">
             {t.sectionLabel}
           </span>

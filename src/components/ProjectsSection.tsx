@@ -1,6 +1,7 @@
 import React from "react";
 import { useLanguage } from "../context/LanguageContext";
 import { translations } from "../contents/translations";
+import openmanipulatorImg from "../assets/robots/openmanipulator.png";
 
 const PROJECT_STYLES = [
   { bg: "bg-zinc-900" },
@@ -37,7 +38,11 @@ export function ProjectsSection() {
     <section id="projects" className="section-padding">
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <div className="text-center mb-16 animate-fade-in" style={{ animationDelay: "0.1s" }}>
+        <div className="text-center mb-16 animate-fade-in relative" style={{ animationDelay: "0.1s" }}>
+          {/* Decorative images */}
+          <div className="absolute top-0 right-0 w-48 md:w-64 opacity-40 hidden lg:block translate-x-1/4 pointer-events-none">
+            <img src={openmanipulatorImg} alt="Robot Arm" className="w-full h-full object-contain animate-float" style={{ animationDelay: "1s" }} />
+          </div>
           <span className="inline-block px-4 py-1.5 rounded-full bg-slate-200/50 border border-slate-300 text-slate-700 text-sm font-medium mb-4">
             {t.sectionLabel}
           </span>
@@ -59,7 +64,7 @@ export function ProjectsSection() {
               >
                 {/* Color header */}
                 <div className={`h-24 ${style!.bg} relative overflow-hidden`}>
-                  <div 
+                  <div
                     className="absolute inset-0 opacity-50"
                   />
                   {/* Decorative circuit */}

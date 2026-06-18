@@ -28,6 +28,10 @@
   .section-padding {
     @apply px-6 py-12 md:py-16;
   }
+
+  .robot-img-transparent {
+    /* Backgrounds will be removed physically, no need for blend modes */
+  }
 }
 
 @keyframes float {

@@ -33,7 +33,7 @@ export interface I_lecturers {
 export const lecturers: Array<I_lecturers> = [
     {
         name: "Dr. Ahmad Zaini, S.T., M.Sc.",
-        role: {en:"Head of laboratory", id: "Kepala Laboratorium"},
+        role: {en:"Head of Laboratory", id: "Kepala Laboratorium"},
         specialty: {en: "", id: ""},
         initials: "AZ",
         education: [
@@ -106,3 +106,15 @@ export const lecturers: Array<I_lecturers> = [
     },
 ]
 
+export interface I_assistant {
+    name: string,
+    role: {en: string, id: string},
+    initials: string,
+    imageUrl?: string
+}
+
+export const assistants: Array<I_assistant> = Array.from({ length: 10 }).map((_, i) => ({
+    name: `Laboratory Assistant ${i + 1}`,
+    role: {en: "Laboratory Assistant", id: "Asisten Laboratorium"},
+    initials: `LA${i + 1}`
+}));
