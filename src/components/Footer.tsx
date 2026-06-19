@@ -30,6 +30,7 @@ export function Footer() {
                 src={Logo} 
                 alt="B401 Logo" 
                 className="w-10 h-10 object-contain rounded-xl drop-shadow-[0_0_8px_rgba(255,255,255,0.1)] group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.3)] transition-all duration-300"
+                loading="lazy"
               />
               <span className="font-display font-semibold text-zinc-900 text-sm leading-tight whitespace-pre-line group-hover:text-zinc-700 transition-colors">
                 {t.labName}

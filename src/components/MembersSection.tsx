@@ -41,7 +41,7 @@ export function MembersSection() {
         <div className="text-center mb-16 animate-fade-in relative" style={{ animationDelay: "0.1s" }}>
           {/* Decorative image */}
           <div className="absolute top-0 left-0 w-48 md:w-64 opacity-40 hidden lg:block -translate-x-1/4 pointer-events-none">
-            <img src={robotImg} alt="UR Robot" className="w-full h-full object-contain robot-img-transparent animate-float" style={{ animationDelay: "0.5s" }} />
+            <img src={robotImg} alt="UR Robot" className="w-full h-full object-contain robot-img-transparent animate-float" style={{ animationDelay: "0.5s" }} loading="lazy" />
           </div>
           <span className="inline-block px-4 py-1.5 rounded-full bg-zinc-100 border border-zinc-200 text-zinc-600 text-sm font-medium mb-4">
             {t.sectionLabel}
@@ -73,6 +73,7 @@ export function MembersSection() {
                         src={lecturer.imageUrl}
                         alt={lecturer.name}
                         className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
                       />
                     ) : (
                       <div className="w-full h-full bg-zinc-800 flex items-center justify-center text-white font-display font-bold text-5xl">
@@ -141,6 +142,7 @@ export function MembersSection() {
                       src={assistant.imageUrl}
                       alt={assistant.name}
                       className="w-full h-full object-cover object-top"
+                      loading="lazy"
                     />
                   ) : (
                     <div className="w-full h-full bg-zinc-800 flex items-center justify-center text-white font-display font-bold text-3xl md:text-4xl">
@@ -190,6 +192,7 @@ export function MembersSection() {
                   src={selectedLecturer.imageUrl}
                   alt={selectedLecturer.name}
                   className="w-full h-full object-cover object-top"
+                  loading="lazy"
                 />
               ) : (
                 <div className="w-full h-full min-h-[250px] bg-zinc-800 flex items-center justify-center text-white font-display font-bold text-7xl">

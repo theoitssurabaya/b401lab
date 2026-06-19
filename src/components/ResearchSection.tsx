@@ -23,7 +23,7 @@ export function ResearchSection() {
         <div className="text-center mb-16 animate-fade-in relative" style={{ animationDelay: "0.1s" }}>
           {/* Decorative image */}
           <div className="absolute top-0 right-0 w-48 md:w-64 opacity-40 hidden lg:block translate-x-1/4 pointer-events-none">
-            <img src={robotImg} alt="Turtlebot" className="w-full h-full object-contain robot-img-transparent animate-float" style={{ animationDelay: "1s" }} />
+            <img src={robotImg} alt="Turtlebot" className="w-full h-full object-contain robot-img-transparent animate-float" style={{ animationDelay: "1s" }} loading="lazy" />
           </div>
           <span className="inline-block px-4 py-1.5 rounded-full bg-zinc-200/50 border border-zinc-300 text-zinc-700 text-sm font-medium mb-4">
             {t.sectionLabel}

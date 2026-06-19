@@ -14,7 +14,7 @@ export function PracticumsSection() {
         <div className="text-center mb-16 animate-fade-in relative" style={{ animationDelay: "0.1s" }}>
           {/* Decorative images */}
           <div className="absolute top-0 left-0 w-48 md:w-64 opacity-40 hidden lg:block -translate-x-1/4 pointer-events-none">
-            <img src={robotImg} alt="Nao Robot" className="w-full h-full object-contain animate-float" />
+            <img src={robotImg} alt="Nao Robot" className="w-full h-full object-contain animate-float" loading="lazy" />
           </div>
           <span className="inline-block px-4 py-1.5 rounded-full bg-neutral-200/50 border border-neutral-300 text-neutral-700 text-sm font-medium mb-4">
             {t.sectionLabel}

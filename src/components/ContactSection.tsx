@@ -36,7 +36,7 @@ export function ContactSection() {
         <div className="text-center mb-16 animate-fade-in relative" style={{ animationDelay: "0.1s" }}>
           {/* Decorative image */}
           <div className="absolute top-0 left-0 w-48 md:w-64 opacity-40 hidden lg:block -translate-x-1/4 pointer-events-none">
-            <img src={unitreeImg} alt="Humanoid Robot" className="w-full h-full object-contain animate-float" style={{ animationDelay: "0.5s" }} />
+            <img src={unitreeImg} alt="Humanoid Robot" className="w-full h-full object-contain animate-float" style={{ animationDelay: "0.5s" }} loading="lazy" />
           </div>
           <span className="inline-block px-4 py-1.5 rounded-full bg-zinc-100 border border-zinc-200 text-zinc-700 text-sm font-medium mb-4">
             {t.sectionLabel}

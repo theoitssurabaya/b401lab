@@ -1,5 +1,6 @@
-import React from "react";
-import { useParams, Navigate } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useParams, Navigate, useLocation } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { Navbar } from "../components/Navbar";
 import { HeroSection } from "../components/HeroSection";
 import { AboutSection } from "../components/AboutSection";
@@ -13,8 +14,25 @@ import { Footer } from "../components/Footer";
 import { LanguageProvider, SUPPORTED_LANGS, type Language } from "../context/LanguageContext";
 import { motion, AnimatePresence } from "framer-motion";
 
+let isFirstLoad = true;
+const isReload = typeof performance !== "undefined" && 
+  performance.getEntriesByType("navigation").length > 0 && 
+  (performance.getEntriesByType("navigation")[0] as PerformanceNavigationTiming).type === "reload";
+
 export function LandingPage() {
   const { lang, section } = useParams<{ lang: string; section?: string }>();
+  const location = useLocation();
+
+  // Redirect to home if it's the very first load and the user reloaded on a section
+  if (isFirstLoad && isReload && section) {
+    isFirstLoad = false;
+    return <Navigate to={`/${lang}`} replace />;
+  }
+  isFirstLoad = false;
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [location.pathname]);
 
   // Redirect any unknown lang slug to English
   if (!lang || !SUPPORTED_LANGS.includes(lang as Language)) {
@@ -25,6 +43,11 @@ export function LandingPage() {
 
   return (
     <LanguageProvider lang={resolvedLang}>
+      <Helmet>
+        <title>B401 Robotics & Intelligent Systems Lab</title>
+        <meta name="description" content="Welcome to the B401 Robotics and Intelligent Systems Laboratory. Discover our research, projects, and state-of-the-art equipment." />
+      </Helmet>
+
       <div className="min-h-screen bg-slate-50 relative overflow-hidden">
         {/* Subtle, cool-toned background blobs for glassmorphism to blur */}
         <div className="absolute top-[-10%] left-[-10%] w-[40vw] h-[40vw] rounded-full bg-blue-200/40 blur-[100px] animate-float pointer-events-none" />

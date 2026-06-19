@@ -15,23 +15,23 @@ export function EquipmentSection() {
         <div className="text-center mb-16 animate-fade-in relative" style={{ animationDelay: "0.1s" }}>
           {/* Decorative images */}
           <div className="absolute top-0 right-0 w-48 md:w-64 opacity-40 hidden lg:block translate-x-1/4 pointer-events-none">
-            <img src={robodogImg} alt="Robo Dog" className="w-full h-full object-contain animate-float" style={{ animationDelay: "1.5s" }} />
+            <img src={robodogImg} alt="Robo Dog" className="w-full h-full object-contain animate-float" style={{ animationDelay: "1.5s" }} loading="lazy" />
           </div>
           <span className="inline-block px-4 py-1.5 rounded-full bg-zinc-100 border border-zinc-200 text-zinc-700 text-sm font-medium mb-4">
             {t.sectionLabel}
           </span>
-          <h2 className="font-display font-bold text-4xl md:text-5xl text-zinc-900 mb-5">
+          <h2 className="font-display font-bold text-3xl md:text-5xl text-zinc-900 mb-5">
             {t.heading} <span className="text-zinc-900">{t.headingAccent}</span>
           </h2>
           <p className="text-zinc-600 text-lg max-w-2xl mx-auto">{t.body}</p>
         </div>
 
         {/* Equipment grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 mb-12">
           {t.items.map((item, idx) => (
             <div
               key={item.name}
-              className="card-glass rounded-2xl p-5 border border-zinc-200 hover:border-zinc-200 hover:bg-zinc-100 transition-all duration-300 group text-center animate-fade-in"
+              className="card-glass rounded-2xl p-5 border border-zinc-200 hover:border-zinc-300 hover:bg-zinc-100/50 transition-all duration-300 group text-center hover:shadow-xl hover:-translate-y-1 animate-fade-in"
               style={{ animationDelay: `${0.2 + idx * 0.05}s` }}
             >
               <div className="text-3xl mb-3 group-hover:scale-110 transition-transform duration-300">

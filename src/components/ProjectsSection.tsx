@@ -41,25 +41,25 @@ export function ProjectsSection() {
         <div className="text-center mb-16 animate-fade-in relative" style={{ animationDelay: "0.1s" }}>
           {/* Decorative images */}
           <div className="absolute top-0 right-0 w-48 md:w-64 opacity-40 hidden lg:block translate-x-1/4 pointer-events-none">
-            <img src={openmanipulatorImg} alt="Robot Arm" className="w-full h-full object-contain animate-float" style={{ animationDelay: "1s" }} />
+            <img src={openmanipulatorImg} alt="Robot Arm" className="w-full h-full object-contain animate-float" style={{ animationDelay: "1s" }} loading="lazy" />
           </div>
           <span className="inline-block px-4 py-1.5 rounded-full bg-slate-200/50 border border-slate-300 text-slate-700 text-sm font-medium mb-4">
             {t.sectionLabel}
           </span>
-          <h2 className="font-display font-bold text-4xl md:text-5xl text-zinc-900 mb-5">
+          <h2 className="font-display font-bold text-3xl md:text-5xl text-zinc-900 mb-5">
             {t.heading} <span className="text-zinc-900">{t.headingAccent}</span>
           </h2>
           <p className="text-zinc-600 text-lg max-w-2xl mx-auto">{t.body}</p>
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {t.items.map((project, idx) => {
             const style = PROJECT_STYLES[idx];
             return (
               <div
                 key={project.title}
-                className="card-glass rounded-2xl overflow-hidden border border-zinc-200 hover:border-zinc-300 transition-all duration-300 group hover:-translate-y-1 hover:shadow-2xl animate-fade-in"
+                className="card-glass rounded-2xl overflow-hidden border border-zinc-200 hover:border-zinc-300 transition-all duration-300 group hover:-translate-y-1.5 hover:shadow-2xl hover:scale-[1.02] animate-fade-in"
                 style={{ animationDelay: `${0.2 + idx * 0.1}s` }}
               >
                 {/* Color header */}

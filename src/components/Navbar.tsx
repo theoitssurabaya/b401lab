@@ -16,7 +16,6 @@ export function Navbar() {
   const activeSection = section || "home";
 
   function switchLang(targetLang: Language) {
-    // Swap the lang segment at the start of the path, keep everything else
     const newPath = location.pathname.replace(/^\/(en|id)/, `/${targetLang}`);
     navigate(newPath + location.search + location.hash);
   }
@@ -41,13 +40,13 @@ export function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-4 ${
         scrolled
-          ? "bg-white/60 backdrop-blur-xl"
+          ? "bg-white/60 backdrop-blur-xl shadow-sm"
           : "bg-transparent"
       }`}
     >
       <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <Link to={`/${lang}`} onClick={() => window.scrollTo(0, 0)} className="flex items-center gap-3 group">
+        <Link to={`/${lang}`} onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="flex items-center gap-3 group min-h-[44px]">
           <img 
             src={Logo} 
             alt="B401 Logo" 
@@ -64,10 +63,10 @@ export function Navbar() {
             <li key={link.path}>
               <Link
                 to={`/${lang}/${link.path === "home" ? "" : link.path}`}
-                className={`px-4 py-2 text-sm rounded-lg transition-all duration-200 ${
+                className={`px-4 py-2 min-h-[44px] flex items-center text-sm rounded-lg transition-all duration-200 font-medium ${
                   activeSection === link.path
-                    ? "text-zinc-900 bg-zinc-100 font-medium"
-                    : "text-zinc-700 hover:text-zinc-900 hover:bg-white"
+                    ? "text-zinc-900 bg-zinc-100"
+                    : "text-zinc-700 hover:text-zinc-900 hover:bg-white/60"
                 }`}
               >
                 {link.label}
@@ -79,26 +78,26 @@ export function Navbar() {
         {/* Right side: Lang switcher + CTA */}
         <div className="hidden md:flex items-center gap-3">
           {/* Language Switcher */}
-          <div className="flex items-center rounded-lg border border-white/15 bg-white overflow-hidden">
+          <div className="relative flex items-center rounded-lg border border-zinc-200 bg-zinc-100/80 p-1 min-h-[44px]">
+            <div 
+              className={`absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] bg-zinc-900 rounded-md transition-transform duration-300 ease-out ${
+                lang === "en" ? "translate-x-0" : "translate-x-full"
+              }`}
+            />
             <button
               id="lang-en-btn"
               onClick={() => switchLang("en")}
-              className={`px-3 py-1.5 text-xs font-semibold transition-all duration-200 ${
-                lang === "en"
-                  ? "bg-zinc-900 text-white"
-                  : "text-zinc-600 hover:text-zinc-900"
+              className={`relative z-10 w-11 py-1.5 text-xs font-semibold transition-colors duration-300 ${
+                lang === "en" ? "text-white" : "text-zinc-600 hover:text-zinc-900"
               }`}
             >
               EN
             </button>
-            <div className="w-px h-4 bg-white/15" />
             <button
               id="lang-id-btn"
               onClick={() => switchLang("id")}
-              className={`px-3 py-1.5 text-xs font-semibold transition-all duration-200 ${
-                lang === "id"
-                  ? "bg-zinc-900 text-white"
-                  : "text-zinc-600 hover:text-zinc-900"
+              className={`relative z-10 w-11 py-1.5 text-xs font-semibold transition-colors duration-300 ${
+                lang === "id" ? "text-white" : "text-zinc-600 hover:text-zinc-900"
               }`}
             >
               ID
@@ -108,7 +107,7 @@ export function Navbar() {
           {/* CTA */}
           <Link
             to={`/${lang}/contact`}
-            className="px-5 py-2 rounded-lg bg-zinc-900 text-white text-sm font-medium hover:opacity-90 hover:shadow-lg hover:shadow-black/50 transition-all duration-300"
+            className="px-5 py-2 min-h-[44px] flex items-center rounded-lg bg-zinc-900 text-white text-sm font-medium hover:opacity-90 hover:shadow-lg hover:shadow-black/20 hover:-translate-y-0.5 transition-all duration-300"
           >
             {t.joinUs}
           </Link>
@@ -117,26 +116,26 @@ export function Navbar() {
         {/* Mobile: lang + hamburger */}
         <div className="md:hidden flex items-center gap-2">
           {/* Language Switcher (mobile) */}
-          <div className="flex items-center rounded-lg border border-white/15 bg-white overflow-hidden">
+          <div className="relative flex items-center rounded-lg border border-zinc-200 bg-zinc-100/80 p-1 min-h-[44px]">
+            <div 
+              className={`absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] bg-zinc-900 rounded-md transition-transform duration-300 ease-out ${
+                lang === "en" ? "translate-x-0" : "translate-x-full"
+              }`}
+            />
             <button
               id="lang-en-btn-mobile"
               onClick={() => switchLang("en")}
-              className={`px-2.5 py-1 text-xs font-semibold transition-all duration-200 ${
-                lang === "en"
-                  ? "bg-zinc-900 text-white"
-                  : "text-zinc-600"
+              className={`relative z-10 w-11 py-1.5 text-xs font-semibold transition-colors duration-300 ${
+                lang === "en" ? "text-white" : "text-zinc-600 hover:text-zinc-900"
               }`}
             >
               EN
             </button>
-            <div className="w-px h-3.5 bg-white/15" />
             <button
               id="lang-id-btn-mobile"
               onClick={() => switchLang("id")}
-              className={`px-2.5 py-1 text-xs font-semibold transition-all duration-200 ${
-                lang === "id"
-                  ? "bg-zinc-900 text-white"
-                  : "text-zinc-600"
+              className={`relative z-10 w-11 py-1.5 text-xs font-semibold transition-colors duration-300 ${
+                lang === "id" ? "text-white" : "text-zinc-600 hover:text-zinc-900"
               }`}
             >
               ID
@@ -147,7 +146,7 @@ export function Navbar() {
           <button
             id="mobile-menu-btn"
             onClick={() => setMenuOpen(!menuOpen)}
-            className="flex flex-col gap-1.5 p-2 rounded-lg hover:bg-zinc-100 transition-colors"
+            className="flex flex-col justify-center gap-1.5 p-3 min-h-[44px] min-w-[44px] rounded-lg hover:bg-zinc-100 transition-colors"
             aria-label="Toggle menu"
           >
             <span className={`block w-5 h-0.5 bg-zinc-900 transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
@@ -173,10 +172,10 @@ export function Navbar() {
                   key={link.path}
                   to={`/${lang}/${link.path === "home" ? "" : link.path}`}
                   onClick={() => setMenuOpen(false)}
-                  className={`px-4 py-3 text-sm rounded-lg transition-all duration-200 ${
+                  className={`px-4 py-3 min-h-[44px] flex items-center text-sm rounded-lg transition-all duration-200 font-medium ${
                     activeSection === link.path
-                      ? "text-zinc-900 bg-zinc-100 font-medium"
-                      : "text-zinc-700 hover:text-zinc-900 hover:bg-white"
+                      ? "text-zinc-900 bg-zinc-100"
+                      : "text-zinc-700 hover:text-zinc-900 hover:bg-zinc-100"
                   }`}
                 >
                   {link.label}
@@ -185,7 +184,7 @@ export function Navbar() {
               <Link
                 to={`/${lang}/contact`}
                 onClick={() => setMenuOpen(false)}
-                className="mt-2 px-4 py-3 text-center rounded-lg bg-zinc-900 text-white text-sm font-medium"
+                className="mt-2 px-4 py-3 min-h-[44px] flex items-center justify-center rounded-lg bg-zinc-900 text-white text-sm font-medium"
               >
                 {t.joinUs}
               </Link>
