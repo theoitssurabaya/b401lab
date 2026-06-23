@@ -113,8 +113,13 @@ export interface I_assistant {
     imageUrl?: string
 }
 
-export const assistants: Array<I_assistant> = Array.from({ length: 10 }).map((_, i) => ({
-    name: `Laboratory Assistant ${i + 1}`,
-    role: {en: "Laboratory Assistant", id: "Asisten Laboratorium"},
-    initials: `LA${i + 1}`
-}));
+export const assistants: Array<I_assistant> = [
+    { name: "John Doe", role: { en: "Lead Assistant", id: "Asisten Utama" }, initials: "JD" },
+    { name: "Jane Smith", role: { en: "Hardware Assistant", id: "Asisten Perangkat Keras" }, initials: "JS" },
+    { name: "Michael Johnson", role: { en: "Software Assistant", id: "Asisten Perangkat Lunak" }, initials: "MJ" },
+    { name: "Emily Davis", role: { en: "Research Assistant", id: "Asisten Peneliti" }, initials: "ED" },
+    { name: "David Wilson", role: { en: "Network Assistant", id: "Asisten Jaringan" }, initials: "DW" },
+    { name: "Sarah Brown", role: { en: "AI/ML Assistant", id: "Asisten AI/ML" }, initials: "SB" },
+    { name: "James Miller", role: { en: "IoT Assistant", id: "Asisten IoT" }, initials: "JM" },
+    { name: "Olivia Taylor", role: { en: "Robotics Assistant", id: "Asisten Robotika" }, initials: "OT" }
+];

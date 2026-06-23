@@ -80,7 +80,7 @@ export function ContactSection() {
                     id="contact-name"
                     type="text"
                     placeholder={t.namePlaceholder}
-                    className="w-full px-4 py-3 rounded-xl bg-white border border-zinc-200 text-zinc-900 placeholder-zinc-600 text-sm focus:outline-none focus:border-zinc-500/50 focus:bg-white/8 transition-all duration-200"
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-zinc-200 text-zinc-900 placeholder-zinc-600 text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500/20 focus:border-zinc-500/50 transition-all duration-200"
                   />
                 </div>
                 <div>
@@ -91,7 +91,7 @@ export function ContactSection() {
                     id="contact-email"
                     type="email"
                     placeholder={t.emailPlaceholder}
-                    className="w-full px-4 py-3 rounded-xl bg-white border border-zinc-200 text-zinc-900 placeholder-zinc-600 text-sm focus:outline-none focus:border-zinc-500/50 focus:bg-white/8 transition-all duration-200"
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-zinc-200 text-zinc-900 placeholder-zinc-600 text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500/20 focus:border-zinc-500/50 transition-all duration-200"
                   />
                 </div>
               </div>
@@ -103,7 +103,7 @@ export function ContactSection() {
                   id="contact-subject"
                   type="text"
                   placeholder={t.subjectPlaceholder}
-                  className="w-full px-4 py-3 rounded-xl bg-white border border-zinc-200 text-zinc-900 placeholder-zinc-600 text-sm focus:outline-none focus:border-zinc-500/50 focus:bg-white/8 transition-all duration-200"
+                  className="w-full px-4 py-3 rounded-xl bg-white border border-zinc-200 text-zinc-900 placeholder-zinc-600 text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500/20 focus:border-zinc-500/50 transition-all duration-200"
                 />
               </div>
               <div>
@@ -114,13 +114,13 @@ export function ContactSection() {
                   id="contact-message"
                   rows={5}
                   placeholder={t.messagePlaceholder}
-                  className="w-full px-4 py-3 rounded-xl bg-white border border-zinc-200 text-zinc-900 placeholder-zinc-600 text-sm focus:outline-none focus:border-zinc-500/50 focus:bg-white/8 transition-all duration-200 resize-none"
+                  className="w-full px-4 py-3 rounded-xl bg-white border border-zinc-200 text-zinc-900 placeholder-zinc-600 text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500/20 focus:border-zinc-500/50 transition-all duration-200 resize-none"
                 />
               </div>
               <button
                 id="contact-submit-btn"
                 type="submit"
-                className="w-full py-3.5 rounded-xl bg-zinc-900 text-white font-semibold hover:opacity-90 hover:shadow-lg hover:shadow-black/50 transition-all duration-300 hover:-translate-y-0.5"
+                className="w-full py-3.5 rounded-xl bg-zinc-900 text-white font-semibold hover:opacity-90 hover:shadow-lg hover:shadow-black/50 focus:outline-none focus:ring-2 focus:ring-zinc-900 focus:ring-offset-2 transition-all duration-300 hover:-translate-y-0.5"
               >
                 {t.sendBtn}
               </button>

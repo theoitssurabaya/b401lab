@@ -55,11 +55,11 @@ export function ProjectsSection() {
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {t.items.map((project, idx) => {
-            const style = PROJECT_STYLES[idx];
+            const style = PROJECT_STYLES[idx % PROJECT_STYLES.length];
             return (
               <div
                 key={project.title}
-                className="card-glass rounded-2xl overflow-hidden border border-zinc-200 hover:border-zinc-300 transition-all duration-300 group hover:-translate-y-1.5 hover:shadow-2xl hover:scale-[1.02] animate-fade-in"
+                className="card-glass rounded-2xl overflow-hidden border border-zinc-200 hover:border-zinc-300 hover:ring-2 hover:ring-zinc-300/50 transition-all duration-300 group hover:-translate-y-1.5 hover:shadow-2xl hover:scale-[1.02] animate-fade-in"
                 style={{ animationDelay: `${0.2 + idx * 0.1}s` }}
               >
                 {/* Color header */}

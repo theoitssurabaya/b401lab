@@ -51,9 +51,9 @@ export function AboutSection() {
             <FadeIn
               key={item.title}
               delay={0.2 + idx * 0.1}
-              className="card-glass rounded-2xl p-6 hover:bg-zinc-100 hover:border-zinc-200 transition-all duration-300 group"
+              className="card-glass rounded-2xl p-6 hover:bg-zinc-100 hover:border-zinc-200 hover:ring-2 hover:ring-zinc-300/50 transition-all duration-300 group"
             >
-              <div className="w-12 h-12 rounded-xl bg-zinc-100 border border-zinc-200 flex items-center justify-center text-zinc-700 mb-4 group-hover:scale-110 transition-transform duration-300">
+              <div className="w-12 h-12 rounded-xl bg-zinc-100 border border-zinc-200 flex items-center justify-center text-zinc-700 mb-4 group-hover:scale-110 group-hover:ring-2 group-hover:ring-zinc-300/50 transition-all duration-300">
                 {ICONS[idx]}
               </div>
               <h3 className="font-display font-semibold text-zinc-900 text-lg mb-2">{item.title}</h3>

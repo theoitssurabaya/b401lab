@@ -30,7 +30,7 @@ export function PracticumsSection() {
           {t.items.map((p, idx) => (
             <div
               key={p.code}
-              className="card-glass rounded-2xl p-6 border border-zinc-200 hover:border-zinc-300 hover:bg-zinc-100 transition-all duration-300 group animate-fade-in"
+              className="card-glass rounded-2xl p-6 border border-zinc-200 hover:border-zinc-300 hover:bg-zinc-100 hover:ring-2 hover:ring-zinc-300/50 transition-all duration-300 group animate-fade-in"
               style={{ animationDelay: `${0.2 + idx * 0.1}s` }}
             >
               <div className="flex flex-col md:flex-row md:items-center gap-4">

@@ -31,7 +31,7 @@ export function EquipmentSection() {
           {t.items.map((item, idx) => (
             <div
               key={item.name}
-              className="card-glass rounded-2xl p-5 border border-zinc-200 hover:border-zinc-300 hover:bg-zinc-100/50 transition-all duration-300 group text-center hover:shadow-xl hover:-translate-y-1 animate-fade-in"
+              className="card-glass rounded-2xl p-5 border border-zinc-200 hover:border-zinc-300 hover:bg-zinc-100/50 hover:ring-2 hover:ring-zinc-300/50 transition-all duration-300 group text-center hover:shadow-xl hover:-translate-y-1 animate-fade-in"
               style={{ animationDelay: `${0.2 + idx * 0.05}s` }}
             >
               <div className="text-3xl mb-3 group-hover:scale-110 transition-transform duration-300">

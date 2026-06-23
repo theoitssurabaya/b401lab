@@ -63,7 +63,7 @@ export function MembersSection() {
                 <div
                   key={lecturer.name}
                   onClick={() => setSelectedLecturer(lecturer)}
-                  className="card-glass rounded-2xl overflow-hidden border border-zinc-200 hover:border-zinc-300 hover:bg-zinc-100/50 transition-all duration-300 flex flex-col animate-fade-in cursor-pointer group shadow-sm hover:shadow-md"
+                  className="card-glass rounded-2xl overflow-hidden border border-zinc-200 hover:border-zinc-300 hover:ring-2 hover:ring-zinc-300/50 hover:bg-zinc-100/50 transition-all duration-300 flex flex-col animate-fade-in cursor-pointer group shadow-sm hover:shadow-md"
                   style={{ animationDelay: `${0.2 + idx * 0.1}s` }}
                 >
                   {/* Photo Section */}

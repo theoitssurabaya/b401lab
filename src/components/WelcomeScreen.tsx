@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion, Variants } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import logo from "../assets/logo/Logo.png";
 
 interface WelcomeScreenProps {
@@ -106,7 +106,7 @@ export function WelcomeScreen({ onEnter }: WelcomeScreenProps) {
           {titleWords.map((word, i) => (
             <motion.h1 
               key={i}
-              className={`font-display font-bold text-3xl md:text-5xl tracking-tight ${word === "B401" ? "text-zinc-600" : "text-zinc-900"}`}
+              className="font-display font-bold text-3xl md:text-5xl tracking-tight text-zinc-900"
               variants={itemVariants}
             >
               {word}

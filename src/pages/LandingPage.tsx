@@ -23,16 +23,16 @@ export function LandingPage() {
   const { lang, section } = useParams<{ lang: string; section?: string }>();
   const location = useLocation();
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [location.pathname]);
+
   // Redirect to home if it's the very first load and the user reloaded on a section
   if (isFirstLoad && isReload && section) {
     isFirstLoad = false;
     return <Navigate to={`/${lang}`} replace />;
   }
   isFirstLoad = false;
-
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [location.pathname]);
 
   // Redirect any unknown lang slug to English
   if (!lang || !SUPPORTED_LANGS.includes(lang as Language)) {

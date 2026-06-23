@@ -25,7 +25,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
           {/* Brand */}
           <div>
-            <Link to={`/${lang}`} onClick={() => window.scrollTo(0, 0)} className="flex items-center gap-3 mb-4 group cursor-pointer">
+            <Link to={`/${lang}`} onClick={() => window.scrollTo(0, 0)} className="flex items-center gap-3 mb-4 group cursor-pointer focus:outline-none focus:ring-2 focus:ring-zinc-500/20 rounded-lg">
               <img 
                 src={Logo} 
                 alt="B401 Logo" 
@@ -47,7 +47,7 @@ export function Footer() {
             <ul className="grid grid-cols-3 gap-y-2 gap-x-4">
               {quickLinks.map((link) => (
                 <li key={link.path}>
-                  <Link to={`/${lang}/${link.path}`} className="text-zinc-500 hover:text-zinc-700 text-sm transition-colors duration-200">
+                  <Link to={`/${lang}/${link.path}`} className="text-zinc-500 hover:text-zinc-700 text-sm transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-zinc-500/20 rounded-md px-1 -mx-1">
                     {link.label}
                   </Link>
                 </li>

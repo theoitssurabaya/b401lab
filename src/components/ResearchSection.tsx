@@ -41,7 +41,7 @@ export function ResearchSection() {
             return (
               <div
                 key={area.title}
-                className={`card-glass rounded-2xl p-6 border transition-all duration-300 group cursor-default hover:-translate-y-1 hover:shadow-xl ${style!.accent} animate-fade-in`}
+                className={`card-glass rounded-2xl p-6 border transition-all duration-300 group cursor-default hover:-translate-y-1 hover:shadow-xl hover:ring-2 hover:ring-zinc-300/50 ${style!.accent} animate-fade-in`}
                 style={{ animationDelay: `${0.2 + idx * 0.1}s` }}
               >
                 {/* Gradient top bar */}
