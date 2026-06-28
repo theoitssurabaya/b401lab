@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useLanguage, type Language } from "../context/LanguageContext";
 import { translations } from "../contents/translations";
 import type { I_lecturers, I_assistant } from "@/contents/MembersContent/memberList";
 import { AnimatedCounter } from "./AnimatedCounter";
-import robotImg from "../assets/robots/ur.png";
+import robotImg from "../assets/robots/ur.webp";
 
 const STUDENT_ROLE_COLORS = [
   "from-zinc-700 to-zinc-900",
@@ -40,16 +40,16 @@ export function MembersSection() {
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in relative" style={{ animationDelay: "0.1s" }}>
           {/* Decorative image */}
-          <div className="absolute top-0 left-0 w-48 md:w-64 opacity-40 hidden lg:block -translate-x-1/4 pointer-events-none">
+          <div className="absolute top-0 left-0 w-48 md:w-64 opacity-40 hidden lg:block -translate-x-1/4 pointer-events-none z-20">
             <img src={robotImg} alt="UR Robot" className="w-full h-full object-contain robot-img-transparent animate-float" style={{ animationDelay: "0.5s" }} loading="lazy" />
           </div>
-          <span className="inline-block px-4 py-1.5 rounded-full bg-zinc-100 border border-zinc-200 text-zinc-600 text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-zinc-100 dark:bg-zinc-800/50 border border-zinc-200 text-zinc-600 dark:text-zinc-400 text-sm font-medium mb-4">
             {t.sectionLabel}
           </span>
-          <h2 className="font-display font-bold text-4xl md:text-5xl text-zinc-900 mb-5">
-            {t.heading} <span className="text-zinc-900">{t.headingAccent}</span>
+          <h2 className="font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-zinc-100 mb-5">
+            {t.heading} <span className="text-zinc-900 dark:text-zinc-100">{t.headingAccent}</span>
           </h2>
-          <p className="text-zinc-600 text-lg max-w-2xl mx-auto">{t.body}</p>
+          <p className="text-zinc-600 dark:text-zinc-400 text-lg max-w-2xl mx-auto">{t.body}</p>
         </div>
 
         {/* Lecturers Grid */}
@@ -85,10 +85,10 @@ export function MembersSection() {
                   {/* Info Section */}
                   <div className="p-4 flex-1 flex flex-col justify-between">
                     <div>
-                      <p className="text-zinc-900 font-semibold text-sm leading-snug">{lecturer.name}</p>
+                      <p className="text-zinc-900 dark:text-zinc-100 font-semibold text-sm leading-snug">{lecturer.name}</p>
                       <p className="text-zinc-500 text-xs mt-1">{handleLecturerLang(lang, lecturer)?.role}</p>
                     </div>
-                    <div className="mt-3 pt-3 border-t border-zinc-200/60 flex items-center justify-between text-zinc-400 group-hover:text-zinc-600 transition-colors">
+                    <div className="mt-3 pt-3 border-t border-zinc-200/60 flex items-center justify-between text-zinc-400 group-hover:text-zinc-600 dark:text-zinc-400 transition-colors">
                       <p className="text-[10px] font-medium truncate pr-3">{handleLecturerLang(lang, lecturer)?.specialty}</p>
                       <svg className="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -117,7 +117,7 @@ export function MembersSection() {
                 <div className={`font-display font-bold text-4xl text-zinc-800 mb-2`}>
                   <AnimatedCounter value={`${role.count}+`} />
                 </div>
-                <div className="text-zinc-600 text-sm">{role.label}</div>
+                <div className="text-zinc-600 dark:text-zinc-400 text-sm">{role.label}</div>
               </div>
             ))}
           </div>
@@ -154,7 +154,7 @@ export function MembersSection() {
                 {/* Info Section */}
                 <div className="p-3 flex-1 flex flex-col justify-between">
                   <div>
-                    <p className="text-zinc-900 font-semibold text-xs leading-snug">{assistant.name}</p>
+                    <p className="text-zinc-900 dark:text-zinc-100 font-semibold text-xs leading-snug">{assistant.name}</p>
                     <p className="text-zinc-500 text-[10px] mt-0.5">{handleAssistantLang(lang, assistant)?.role}</p>
                   </div>
                 </div>
@@ -174,7 +174,7 @@ export function MembersSection() {
           />
 
           {/* Modal Content */}
-          <div className="relative w-full max-w-3xl max-h-[90vh] bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row border border-zinc-200/50">
+          <div className="relative w-full max-w-3xl max-h-[90vh] bg-white dark:bg-zinc-800 rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row border border-zinc-200/50">
             {/* Close Button */}
             <button
               onClick={() => setSelectedLecturer(null)}
@@ -186,7 +186,7 @@ export function MembersSection() {
             </button>
 
             {/* Modal Image Area */}
-            <div className="w-full md:w-2/5 md:min-h-[400px] shrink-0 bg-zinc-100">
+            <div className="w-full md:w-2/5 md:min-h-[400px] shrink-0 bg-zinc-100 dark:bg-zinc-800/50">
               {selectedLecturer.imageUrl ? (
                 <img
                   src={selectedLecturer.imageUrl}
@@ -203,7 +203,7 @@ export function MembersSection() {
 
             {/* Modal Info Area */}
             <div className="flex-1 p-6 sm:p-8 overflow-y-auto">
-              <h3 className="font-display font-bold text-2xl text-zinc-900 leading-tight mb-2">
+              <h3 className="font-display font-bold text-2xl text-zinc-900 dark:text-zinc-100 leading-tight mb-2">
                 {selectedLecturer.name}
               </h3>
               <p className="text-zinc-500 font-medium text-sm mb-6 pb-6 border-b border-zinc-100">
@@ -213,10 +213,10 @@ export function MembersSection() {
               <div className="space-y-6">
                 {selectedLecturer.education && selectedLecturer.education.length > 0 && (
                   <div>
-                    <h4 className="text-xs font-bold text-zinc-900 uppercase tracking-wider mb-3">{(t as any).modalEducationLabel || "Education"}</h4>
+                    <h4 className="text-xs font-bold text-zinc-900 dark:text-zinc-100 uppercase tracking-wider mb-3">{(t as any).modalEducationLabel || "Education"}</h4>
                     <ul className="space-y-2">
                       {selectedLecturer.education.map((edu, i) => (
-                        <li key={i} className="text-sm text-zinc-600 flex items-start gap-2.5">
+                        <li key={i} className="text-sm text-zinc-600 dark:text-zinc-400 flex items-start gap-2.5">
                           <span className="w-1.5 h-1.5 rounded-full bg-zinc-400 mt-1.5 shrink-0" />
                           <span className="leading-relaxed">{edu}</span>
                         </li>
@@ -227,8 +227,8 @@ export function MembersSection() {
 
                 {selectedLecturer.expertise && (
                   <div>
-                    <h4 className="text-xs font-bold text-zinc-900 uppercase tracking-wider mb-3">{(t as any).modalResearchLabel || "Research Interests"}</h4>
-                    <p className="text-sm text-zinc-600 leading-relaxed">
+                    <h4 className="text-xs font-bold text-zinc-900 dark:text-zinc-100 uppercase tracking-wider mb-3">{(t as any).modalResearchLabel || "Research Interests"}</h4>
+                    <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
                       {selectedLecturer.expertise}
                     </p>
                   </div>

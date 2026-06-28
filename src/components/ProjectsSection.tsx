@@ -1,7 +1,6 @@
-import React from "react";
 import { useLanguage } from "../context/LanguageContext";
 import { translations } from "../contents/translations";
-import openmanipulatorImg from "../assets/robots/openmanipulator.png";
+import openmanipulatorImg from "../assets/robots/openmanipulator.webp";
 
 const PROJECT_STYLES = [
   { bg: "bg-zinc-900" },
@@ -28,9 +27,9 @@ export function ProjectsSection() {
   const getStatusColor = (status: string) => {
     switch (status) {
       case "Completed": return "text-neutral-700 bg-neutral-200/50 border-neutral-300";
-      case "Active": return "text-zinc-600 bg-zinc-100 border-zinc-200";
+      case "Active": return "text-zinc-600 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-800/50 border-zinc-200";
       case "Research": return "text-slate-700 bg-slate-200/50 border-slate-300";
-      default: return "text-zinc-600 bg-white border-zinc-200";
+      default: return "text-zinc-600 dark:text-zinc-400 bg-white dark:bg-zinc-800 border-zinc-200";
     }
   };
 
@@ -40,16 +39,16 @@ export function ProjectsSection() {
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in relative" style={{ animationDelay: "0.1s" }}>
           {/* Decorative images */}
-          <div className="absolute top-0 right-0 w-48 md:w-64 opacity-40 hidden lg:block translate-x-1/4 pointer-events-none">
+          <div className="absolute top-0 right-0 w-48 md:w-64 opacity-40 hidden lg:block translate-x-1/4 pointer-events-none z-20">
             <img src={openmanipulatorImg} alt="Robot Arm" className="w-full h-full object-contain animate-float" style={{ animationDelay: "1s" }} loading="lazy" />
           </div>
           <span className="inline-block px-4 py-1.5 rounded-full bg-slate-200/50 border border-slate-300 text-slate-700 text-sm font-medium mb-4">
             {t.sectionLabel}
           </span>
-          <h2 className="font-display font-bold text-3xl md:text-5xl text-zinc-900 mb-5">
-            {t.heading} <span className="text-zinc-900">{t.headingAccent}</span>
+          <h2 className="font-display font-bold text-3xl md:text-5xl text-zinc-900 dark:text-zinc-100 mb-5">
+            {t.heading} <span className="text-zinc-900 dark:text-zinc-100">{t.headingAccent}</span>
           </h2>
-          <p className="text-zinc-600 text-lg max-w-2xl mx-auto">{t.body}</p>
+          <p className="text-zinc-600 dark:text-zinc-400 text-lg max-w-2xl mx-auto">{t.body}</p>
         </div>
 
         {/* Grid */}
@@ -69,7 +68,7 @@ export function ProjectsSection() {
                   />
                   {/* Decorative circuit */}
                   <div className="absolute bottom-3 right-3 w-12 h-12 opacity-20">
-                    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-zinc-900">
+                    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-zinc-900 dark:text-zinc-100">
                       <circle cx="24" cy="24" r="8" />
                       <line x1="24" y1="0" x2="24" y2="16" />
                       <line x1="24" y1="32" x2="24" y2="48" />
@@ -82,17 +81,17 @@ export function ProjectsSection() {
                 {/* Content */}
                 <div className="p-6">
                   <div className="flex items-start justify-between gap-3 mb-3">
-                    <h3 className="font-display font-semibold text-zinc-900 text-lg leading-snug">
+                    <h3 className="font-display font-semibold text-zinc-900 dark:text-zinc-100 text-lg leading-snug">
                       {project.title}
                     </h3>
                     <span className={`shrink-0 px-2.5 py-0.5 rounded-full border text-xs font-medium ${getStatusColor(project.status)}`}>
                       {getStatusLabel(project.status)}
                     </span>
                   </div>
-                  <p className="text-zinc-600 text-sm leading-relaxed mb-4">{project.desc}</p>
+                  <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed mb-4">{project.desc}</p>
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
-                      <span key={tag} className="px-2.5 py-1 rounded-lg bg-white border border-zinc-200 text-zinc-600 text-xs">
+                      <span key={tag} className="px-2.5 py-1 rounded-lg bg-white dark:bg-zinc-800 border border-zinc-200 text-zinc-600 dark:text-zinc-400 text-xs">
                         {tag}
                       </span>
                     ))}

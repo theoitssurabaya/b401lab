@@ -1,12 +1,11 @@
-import React from "react";
 import { useLanguage } from "../context/LanguageContext";
 import { translations } from "../contents/translations";
-import robotImg from "../assets/robots/turtlebot.png";
+import robotImg from "../assets/robots/turtlebot.webp";
 
 const AREA_STYLES = [
-  { color: "from-zinc-400 to-zinc-500", badge: "bg-zinc-100 text-zinc-700 border-zinc-200", accent: "border-zinc-200 hover:border-zinc-400" },
+  { color: "from-zinc-400 to-zinc-500", badge: "bg-zinc-100 dark:bg-zinc-800/50 text-zinc-700 border-zinc-200", accent: "border-zinc-200 hover:border-zinc-400" },
   { color: "from-violet-500 to-purple-600", badge: "bg-zinc-200/50 text-zinc-700 border-zinc-300", accent: "border-zinc-300 hover:border-zinc-700/60" },
-  { color: "from-zinc-600 to-zinc-800", badge: "bg-zinc-100 text-zinc-600 border-zinc-200", accent: "border-zinc-200 hover:border-zinc-400" },
+  { color: "from-zinc-600 to-zinc-800", badge: "bg-zinc-100 dark:bg-zinc-800/50 text-zinc-600 dark:text-zinc-400 border-zinc-200", accent: "border-zinc-200 hover:border-zinc-400" },
   { color: "from-orange-500 to-amber-500", badge: "bg-slate-200/50 text-slate-700 border-slate-300", accent: "border-slate-300 hover:border-slate-700/60" },
   { color: "from-emerald-500 to-green-600", badge: "bg-neutral-200/50 text-neutral-700 border-neutral-300", accent: "border-neutral-300 hover:border-neutral-700/60" },
   { color: "from-rose-500 to-pink-600", badge: "bg-gray-200/50 text-gray-700 border-gray-300", accent: "border-gray-300 hover:border-gray-700/60" },
@@ -22,16 +21,16 @@ export function ResearchSection() {
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in relative" style={{ animationDelay: "0.1s" }}>
           {/* Decorative image */}
-          <div className="absolute top-0 right-0 w-48 md:w-64 opacity-40 hidden lg:block translate-x-1/4 pointer-events-none">
+          <div className="absolute top-0 right-0 w-48 md:w-64 opacity-40 hidden lg:block translate-x-1/4 pointer-events-none z-20">
             <img src={robotImg} alt="Turtlebot" className="w-full h-full object-contain robot-img-transparent animate-float" style={{ animationDelay: "1s" }} loading="lazy" />
           </div>
           <span className="inline-block px-4 py-1.5 rounded-full bg-zinc-200/50 border border-zinc-300 text-zinc-700 text-sm font-medium mb-4">
             {t.sectionLabel}
           </span>
-          <h2 className="font-display font-bold text-4xl md:text-5xl text-zinc-900 mb-5">
-            {t.heading} <span className="text-zinc-900">{t.headingAccent}</span>
+          <h2 className="font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-zinc-100 mb-5">
+            {t.heading} <span className="text-zinc-900 dark:text-zinc-100">{t.headingAccent}</span>
           </h2>
-          <p className="text-zinc-600 text-lg max-w-2xl mx-auto">{t.body}</p>
+          <p className="text-zinc-600 dark:text-zinc-400 text-lg max-w-2xl mx-auto">{t.body}</p>
         </div>
 
         {/* Grid */}
@@ -50,10 +49,10 @@ export function ResearchSection() {
                 <span className={`inline-block px-3 py-1 rounded-full border text-xs font-medium mb-3 ${style!.badge}`}>
                   {area.tag}
                 </span>
-                <h3 className="font-display font-semibold text-zinc-900 text-xl mb-3 leading-snug">
+                <h3 className="font-display font-semibold text-zinc-900 dark:text-zinc-100 text-xl mb-3 leading-snug">
                   {area.title}
                 </h3>
-                <p className="text-zinc-600 text-sm leading-relaxed">{area.desc}</p>
+                <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">{area.desc}</p>
               </div>
             );
           })}

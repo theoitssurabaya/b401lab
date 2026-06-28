@@ -1,14 +1,15 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useParams, Navigate, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "../components/Navbar";
 import { HeroSection } from "../components/HeroSection";
-import { AboutSection } from "../components/AboutSection";
+
 import { ResearchSection } from "../components/ResearchSection";
 import { PracticumsSection } from "../components/PracticumsSection";
 import { ProjectsSection } from "../components/ProjectsSection";
 import { MembersSection } from "../components/MembersSection";
 import { EquipmentSection } from "../components/EquipmentSection";
+import { AchievementSection } from "../components/AchievementSection";
 import { ContactSection } from "../components/ContactSection";
 import { Footer } from "../components/Footer";
 import { LanguageProvider, SUPPORTED_LANGS, type Language } from "../context/LanguageContext";
@@ -66,12 +67,13 @@ export function LandingPage() {
                 transition={{ duration: 0.3 }}
               >
                 {(!section || section === "home") && <HeroSection />}
-                {section === "about" && <AboutSection />}
+
                 {section === "research" && <ResearchSection />}
                 {section === "practicums" && <PracticumsSection />}
                 {section === "projects" && <ProjectsSection />}
                 {section === "members" && <MembersSection />}
                 {section === "equipment" && <EquipmentSection />}
+                {section === "achievements" && <AchievementSection />}
                 {section === "contact" && <ContactSection />}
               </motion.div>
             </AnimatePresence>

@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useLocation, Link, useParams } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage, type Language } from "../context/LanguageContext";
 import { translations } from "../contents/translations";
-import Logo from "../assets/logo/Logo.png";
+import Logo from "../assets/logo/Logo.webp";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -53,11 +53,11 @@ export function Navbar() {
 
   const navLinks = [
     { label: "Home", path: "home" },
-    { label: t.about, path: "about" },
     { label: t.research, path: "research" },
     { label: t.practicums, path: "practicums" },
     { label: t.projects, path: "projects" },
     { label: t.members, path: "members" },
+    { label: t.achievements, path: "achievements" },
     { label: t.contact, path: "contact" },
   ];
 
@@ -65,7 +65,7 @@ export function Navbar() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 py-4 ${
         scrolled
-          ? "bg-white/60 backdrop-blur-xl shadow-sm"
+          ? "bg-white/60 dark:bg-zinc-900/80 backdrop-blur-xl shadow-sm dark:shadow-black/20"
           : "bg-transparent"
       }`}
     >
@@ -77,7 +77,7 @@ export function Navbar() {
             alt="B401 Logo" 
             className="w-10 h-10 object-contain rounded-xl drop-shadow-[0_0_8px_rgba(255,255,255,0.2)] group-hover:drop-shadow-[0_0_12px_rgba(255,255,255,0.4)] transition-all duration-300"
           />
-          <span className="font-display font-semibold text-zinc-900 text-sm hidden sm:block leading-tight whitespace-pre-line">
+          <span className="font-display font-semibold text-zinc-900 dark:text-zinc-100 text-sm hidden sm:block leading-tight whitespace-pre-line">
             {t.labName}
           </span>
         </Link>
@@ -90,8 +90,8 @@ export function Navbar() {
                 to={`/${lang}/${link.path === "home" ? "" : link.path}`}
                 className={`px-4 py-2 min-h-[44px] flex items-center text-sm rounded-lg transition-all duration-200 font-medium focus:outline-none focus:ring-2 focus:ring-zinc-500/20 ${
                   activeSection === link.path
-                    ? "text-zinc-900 bg-zinc-100"
-                    : "text-zinc-700 hover:text-zinc-900 hover:bg-white/60"
+                    ? "text-zinc-900 dark:text-zinc-100 bg-zinc-100 dark:bg-zinc-800/50"
+                    : "text-zinc-700 hover:text-zinc-900 dark:text-zinc-100 hover:bg-white/60"
                 }`}
               >
                 {link.label}
@@ -111,7 +111,7 @@ export function Navbar() {
             aria-label="Toggle Dark Mode"
           >
             <div 
-              className={`absolute top-1 left-1 w-6 h-6 rounded-full bg-white shadow-sm flex items-center justify-center transition-transform duration-300 ${
+              className={`absolute top-1 left-1 w-6 h-6 rounded-full bg-white dark:bg-zinc-800 shadow-sm flex items-center justify-center transition-transform duration-300 ${
                 isDarkMode ? "translate-x-6" : "translate-x-0"
               }`}
             >
@@ -138,7 +138,7 @@ export function Navbar() {
               id="lang-en-btn"
               onClick={() => switchLang("en")}
               className={`relative z-10 w-11 py-1.5 text-xs font-semibold transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-zinc-500/50 rounded-md ${
-                lang === "en" ? "text-white" : "text-zinc-600 hover:text-zinc-900"
+                lang === "en" ? "text-white" : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:text-zinc-100"
               }`}
             >
               EN
@@ -147,7 +147,7 @@ export function Navbar() {
               id="lang-id-btn"
               onClick={() => switchLang("id")}
               className={`relative z-10 w-11 py-1.5 text-xs font-semibold transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-zinc-500/50 rounded-md ${
-                lang === "id" ? "text-white" : "text-zinc-600 hover:text-zinc-900"
+                lang === "id" ? "text-white" : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:text-zinc-100"
               }`}
             >
               ID
@@ -174,7 +174,7 @@ export function Navbar() {
             aria-label="Toggle Dark Mode"
           >
             <div 
-              className={`absolute top-1 left-1 w-6 h-6 rounded-full bg-white shadow-sm flex items-center justify-center transition-transform duration-300 ${
+              className={`absolute top-1 left-1 w-6 h-6 rounded-full bg-white dark:bg-zinc-800 shadow-sm flex items-center justify-center transition-transform duration-300 ${
                 isDarkMode ? "translate-x-6" : "translate-x-0"
               }`}
             >
@@ -201,7 +201,7 @@ export function Navbar() {
               id="lang-en-btn-mobile"
               onClick={() => switchLang("en")}
               className={`relative z-10 w-11 py-1.5 text-xs font-semibold transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-zinc-500/50 rounded-md ${
-                lang === "en" ? "text-white" : "text-zinc-600 hover:text-zinc-900"
+                lang === "en" ? "text-white" : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:text-zinc-100"
               }`}
             >
               EN
@@ -210,7 +210,7 @@ export function Navbar() {
               id="lang-id-btn-mobile"
               onClick={() => switchLang("id")}
               className={`relative z-10 w-11 py-1.5 text-xs font-semibold transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-zinc-500/50 rounded-md ${
-                lang === "id" ? "text-white" : "text-zinc-600 hover:text-zinc-900"
+                lang === "id" ? "text-white" : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:text-zinc-100"
               }`}
             >
               ID
@@ -221,12 +221,12 @@ export function Navbar() {
           <button
             id="mobile-menu-btn"
             onClick={() => setMenuOpen(!menuOpen)}
-            className="flex flex-col justify-center gap-1.5 p-3 min-h-[44px] min-w-[44px] rounded-lg hover:bg-zinc-100 focus:outline-none focus:ring-2 focus:ring-zinc-500/20 transition-colors duration-200"
+            className="flex flex-col justify-center gap-1.5 p-3 min-h-[44px] min-w-[44px] rounded-lg hover:bg-zinc-100 dark:bg-zinc-800/50 focus:outline-none focus:ring-2 focus:ring-zinc-500/20 transition-colors duration-200"
             aria-label="Toggle menu"
           >
-            <span className={`block w-5 h-0.5 bg-zinc-900 transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
-            <span className={`block w-5 h-0.5 bg-zinc-900 transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
-            <span className={`block w-5 h-0.5 bg-zinc-900 transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+            <span className={`block w-5 h-0.5 bg-zinc-900 dark:bg-zinc-100 transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
+            <span className={`block w-5 h-0.5 bg-zinc-900 dark:bg-zinc-100 transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
+            <span className={`block w-5 h-0.5 bg-zinc-900 dark:bg-zinc-100 transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
           </button>
         </div>
       </nav>
@@ -239,7 +239,7 @@ export function Navbar() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="md:hidden overflow-hidden bg-white/95 backdrop-blur-lg border-t border-zinc-200"
+            className="md:hidden overflow-hidden bg-white/95 dark:bg-zinc-900/95 backdrop-blur-lg border-t border-zinc-200 dark:border-zinc-800"
           >
             <div className="px-6 py-4 flex flex-col gap-1">
               {navLinks.map((link) => (
@@ -249,8 +249,8 @@ export function Navbar() {
                   onClick={() => setMenuOpen(false)}
                   className={`px-4 py-3 min-h-[44px] flex items-center text-sm rounded-lg transition-all duration-200 font-medium focus:outline-none focus:ring-2 focus:ring-zinc-500/20 ${
                     activeSection === link.path
-                      ? "text-zinc-900 bg-zinc-100"
-                      : "text-zinc-700 hover:text-zinc-900 hover:bg-zinc-100"
+                      ? "text-zinc-900 dark:text-zinc-100 bg-zinc-100 dark:bg-zinc-800/50"
+                      : "text-zinc-700 hover:text-zinc-900 dark:text-zinc-100 hover:bg-zinc-100 dark:bg-zinc-800/50"
                   }`}
                 >
                   {link.label}
