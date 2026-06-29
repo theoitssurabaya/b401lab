@@ -90,7 +90,7 @@ export function Navbar() {
                 to={`/${lang}/${link.path === "home" ? "" : link.path}`}
                 className={`px-4 py-2 min-h-[44px] flex items-center text-sm rounded-lg transition-all duration-200 font-medium focus:outline-none focus:ring-2 focus:ring-zinc-500/20 ${
                   activeSection === link.path
-                    ? "text-zinc-900 dark:text-zinc-100 bg-zinc-100 dark:bg-zinc-800/50"
+                    ? "text-zinc-900 dark:text-zinc-100 bg-zinc-100 dark:bg-white/5"
                     : "text-zinc-700 hover:text-zinc-900 dark:text-zinc-100 hover:bg-white/60"
                 }`}
               >
@@ -111,12 +111,12 @@ export function Navbar() {
             aria-label="Toggle Dark Mode"
           >
             <div 
-              className={`absolute top-1 left-1 w-6 h-6 rounded-full bg-white dark:bg-zinc-800 shadow-sm flex items-center justify-center transition-transform duration-300 ${
+              className={`absolute top-1 left-1 w-6 h-6 rounded-full bg-white shadow-sm flex items-center justify-center transition-transform duration-300 ${
                 isDarkMode ? "translate-x-6" : "translate-x-0"
               }`}
             >
               {isDarkMode ? (
-                <svg className="w-3.5 h-3.5 text-zinc-800" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-3.5 h-3.5 text-zinc-900" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
                 </svg>
               ) : (
@@ -128,7 +128,7 @@ export function Navbar() {
           </button>
 
           {/* Language Switcher */}
-          <div className="relative flex items-center rounded-lg border border-zinc-200 bg-zinc-100/80 p-1 min-h-[44px]">
+          <div className="relative flex items-center rounded-lg border border-zinc-200 dark:border-white/10 bg-zinc-100/80 p-1 min-h-[44px]">
             <div 
               className={`absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] bg-zinc-900 rounded-md transition-transform duration-300 ease-out ${
                 lang === "en" ? "translate-x-0" : "translate-x-full"
@@ -138,7 +138,7 @@ export function Navbar() {
               id="lang-en-btn"
               onClick={() => switchLang("en")}
               className={`relative z-10 w-11 py-1.5 text-xs font-semibold transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-zinc-500/50 rounded-md ${
-                lang === "en" ? "text-white" : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:text-zinc-100"
+                lang === "en" ? "text-white" : "text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:text-zinc-100"
               }`}
             >
               EN
@@ -147,7 +147,7 @@ export function Navbar() {
               id="lang-id-btn"
               onClick={() => switchLang("id")}
               className={`relative z-10 w-11 py-1.5 text-xs font-semibold transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-zinc-500/50 rounded-md ${
-                lang === "id" ? "text-white" : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:text-zinc-100"
+                lang === "id" ? "text-white" : "text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:text-zinc-100"
               }`}
             >
               ID
@@ -174,12 +174,12 @@ export function Navbar() {
             aria-label="Toggle Dark Mode"
           >
             <div 
-              className={`absolute top-1 left-1 w-6 h-6 rounded-full bg-white dark:bg-zinc-800 shadow-sm flex items-center justify-center transition-transform duration-300 ${
+              className={`absolute top-1 left-1 w-6 h-6 rounded-full bg-white shadow-sm flex items-center justify-center transition-transform duration-300 ${
                 isDarkMode ? "translate-x-6" : "translate-x-0"
               }`}
             >
               {isDarkMode ? (
-                <svg className="w-3.5 h-3.5 text-zinc-800" fill="currentColor" viewBox="0 0 20 20">
+                <svg className="w-3.5 h-3.5 text-zinc-900" fill="currentColor" viewBox="0 0 20 20">
                   <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
                 </svg>
               ) : (
@@ -191,7 +191,7 @@ export function Navbar() {
           </button>
 
           {/* Language Switcher (mobile) */}
-          <div className="relative flex items-center rounded-lg border border-zinc-200 bg-zinc-100/80 p-1 min-h-[44px]">
+          <div className="relative flex items-center rounded-lg border border-zinc-200 dark:border-white/10 bg-zinc-100/80 p-1 min-h-[44px]">
             <div 
               className={`absolute top-1 bottom-1 left-1 w-[calc(50%-4px)] bg-zinc-900 rounded-md transition-transform duration-300 ease-out ${
                 lang === "en" ? "translate-x-0" : "translate-x-full"
@@ -201,7 +201,7 @@ export function Navbar() {
               id="lang-en-btn-mobile"
               onClick={() => switchLang("en")}
               className={`relative z-10 w-11 py-1.5 text-xs font-semibold transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-zinc-500/50 rounded-md ${
-                lang === "en" ? "text-white" : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:text-zinc-100"
+                lang === "en" ? "text-white" : "text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:text-zinc-100"
               }`}
             >
               EN
@@ -210,7 +210,7 @@ export function Navbar() {
               id="lang-id-btn-mobile"
               onClick={() => switchLang("id")}
               className={`relative z-10 w-11 py-1.5 text-xs font-semibold transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-zinc-500/50 rounded-md ${
-                lang === "id" ? "text-white" : "text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:text-zinc-100"
+                lang === "id" ? "text-white" : "text-zinc-600 dark:text-zinc-300 hover:text-zinc-900 dark:text-zinc-100"
               }`}
             >
               ID
@@ -221,7 +221,7 @@ export function Navbar() {
           <button
             id="mobile-menu-btn"
             onClick={() => setMenuOpen(!menuOpen)}
-            className="flex flex-col justify-center gap-1.5 p-3 min-h-[44px] min-w-[44px] rounded-lg hover:bg-zinc-100 dark:bg-zinc-800/50 focus:outline-none focus:ring-2 focus:ring-zinc-500/20 transition-colors duration-200"
+            className="flex flex-col justify-center gap-1.5 p-3 min-h-[44px] min-w-[44px] rounded-lg hover:bg-zinc-100 dark:bg-white/5 focus:outline-none focus:ring-2 focus:ring-zinc-500/20 transition-colors duration-200"
             aria-label="Toggle menu"
           >
             <span className={`block w-5 h-0.5 bg-zinc-900 dark:bg-zinc-100 transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
@@ -249,8 +249,8 @@ export function Navbar() {
                   onClick={() => setMenuOpen(false)}
                   className={`px-4 py-3 min-h-[44px] flex items-center text-sm rounded-lg transition-all duration-200 font-medium focus:outline-none focus:ring-2 focus:ring-zinc-500/20 ${
                     activeSection === link.path
-                      ? "text-zinc-900 dark:text-zinc-100 bg-zinc-100 dark:bg-zinc-800/50"
-                      : "text-zinc-700 hover:text-zinc-900 dark:text-zinc-100 hover:bg-zinc-100 dark:bg-zinc-800/50"
+                      ? "text-zinc-900 dark:text-zinc-100 bg-zinc-100 dark:bg-white/5"
+                      : "text-zinc-700 hover:text-zinc-900 dark:text-zinc-100 hover:bg-zinc-100 dark:bg-white/5"
                   }`}
                 >
                   {link.label}

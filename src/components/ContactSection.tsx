@@ -37,13 +37,13 @@ export function ContactSection() {
           <div className="absolute top-0 left-0 w-48 md:w-64 opacity-40 hidden lg:block -translate-x-1/4 pointer-events-none z-20">
             <img src={unitreeImg} alt="Humanoid Robot" className="w-full h-full object-contain animate-float" style={{ animationDelay: "0.5s" }} loading="lazy" />
           </div>
-          <span className="inline-block px-4 py-1.5 rounded-full bg-zinc-100 dark:bg-zinc-800/50 border border-zinc-200 text-zinc-700 text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 text-zinc-700 dark:text-zinc-300 text-sm font-medium mb-4">
             {t.sectionLabel}
           </span>
           <h2 className="font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-zinc-100 mb-5">
             {t.heading} <span className="text-zinc-900 dark:text-zinc-100">{t.headingAccent}</span>
           </h2>
-          <p className="text-zinc-600 dark:text-zinc-400 text-lg max-w-2xl mx-auto">{t.body}</p>
+          <p className="text-zinc-600 dark:text-zinc-300 text-lg max-w-2xl mx-auto">{t.body}</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
@@ -52,10 +52,10 @@ export function ContactSection() {
             {contactItems.map((item, idx) => (
               <div
                 key={item.label}
-                className="card-glass rounded-2xl p-6 border border-zinc-200 flex items-start gap-4 animate-fade-in"
+                className="card-glass rounded-2xl p-6 flex items-start gap-4 animate-fade-in"
                 style={{ animationDelay: `${0.2 + idx * 0.1}s` }}
               >
-                <div className="w-10 h-10 rounded-xl bg-zinc-100 dark:bg-zinc-800/50 border border-zinc-200 flex items-center justify-center text-zinc-700 shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 flex items-center justify-center text-zinc-700 dark:text-zinc-300 shrink-0">
                   {CONTACT_ICONS[idx]}
                 </div>
                 <div>
@@ -67,59 +67,59 @@ export function ContactSection() {
           </div>
 
           {/* Contact form */}
-          <div className="card-glass rounded-2xl p-8 border border-zinc-200 animate-fade-in" style={{ animationDelay: "0.4s" }}>
+          <div className="card-glass rounded-2xl p-8 animate-fade-in" style={{ animationDelay: "0.4s" }}>
             <h3 className="font-display font-semibold text-zinc-900 dark:text-zinc-100 text-xl mb-6">{t.formTitle}</h3>
             <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="contact-name" className="block text-zinc-600 dark:text-zinc-400 text-sm mb-1.5">
+                  <label htmlFor="contact-name" className="block text-zinc-600 dark:text-zinc-300 text-sm mb-1.5">
                     {t.nameLabel}
                   </label>
                   <input
                     id="contact-name"
                     type="text"
                     placeholder={t.namePlaceholder}
-                    className="w-full px-4 py-3 rounded-xl bg-white dark:bg-zinc-800 border border-zinc-200 text-zinc-900 dark:text-zinc-100 placeholder-zinc-600 text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500/20 focus:border-zinc-500/50 transition-all duration-200"
+                    className="w-full px-4 py-3 rounded-xl bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10 text-zinc-900 dark:text-zinc-100 placeholder-zinc-600 dark:placeholder-zinc-400 text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500/20 focus:border-zinc-500/50 transition-all duration-200"
                   />
                 </div>
                 <div>
-                  <label htmlFor="contact-email" className="block text-zinc-600 dark:text-zinc-400 text-sm mb-1.5">
+                  <label htmlFor="contact-email" className="block text-zinc-600 dark:text-zinc-300 text-sm mb-1.5">
                     {t.emailFormLabel}
                   </label>
                   <input
                     id="contact-email"
                     type="email"
                     placeholder={t.emailPlaceholder}
-                    className="w-full px-4 py-3 rounded-xl bg-white dark:bg-zinc-800 border border-zinc-200 text-zinc-900 dark:text-zinc-100 placeholder-zinc-600 text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500/20 focus:border-zinc-500/50 transition-all duration-200"
+                    className="w-full px-4 py-3 rounded-xl bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10 text-zinc-900 dark:text-zinc-100 placeholder-zinc-600 dark:placeholder-zinc-400 text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500/20 focus:border-zinc-500/50 transition-all duration-200"
                   />
                 </div>
               </div>
               <div>
-                <label htmlFor="contact-subject" className="block text-zinc-600 dark:text-zinc-400 text-sm mb-1.5">
+                <label htmlFor="contact-subject" className="block text-zinc-600 dark:text-zinc-300 text-sm mb-1.5">
                   {t.subjectLabel}
                 </label>
                 <input
                   id="contact-subject"
                   type="text"
                   placeholder={t.subjectPlaceholder}
-                  className="w-full px-4 py-3 rounded-xl bg-white dark:bg-zinc-800 border border-zinc-200 text-zinc-900 dark:text-zinc-100 placeholder-zinc-600 text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500/20 focus:border-zinc-500/50 transition-all duration-200"
+                  className="w-full px-4 py-3 rounded-xl bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10 text-zinc-900 dark:text-zinc-100 placeholder-zinc-600 dark:placeholder-zinc-400 text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500/20 focus:border-zinc-500/50 transition-all duration-200"
                 />
               </div>
               <div>
-                <label htmlFor="contact-message" className="block text-zinc-600 dark:text-zinc-400 text-sm mb-1.5">
+                <label htmlFor="contact-message" className="block text-zinc-600 dark:text-zinc-300 text-sm mb-1.5">
                   {t.messageLabel}
                 </label>
                 <textarea
                   id="contact-message"
                   rows={5}
                   placeholder={t.messagePlaceholder}
-                  className="w-full px-4 py-3 rounded-xl bg-white dark:bg-zinc-800 border border-zinc-200 text-zinc-900 dark:text-zinc-100 placeholder-zinc-600 text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500/20 focus:border-zinc-500/50 transition-all duration-200 resize-none"
+                  className="w-full px-4 py-3 rounded-xl bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10 text-zinc-900 dark:text-zinc-100 placeholder-zinc-600 dark:placeholder-zinc-400 text-sm focus:outline-none focus:ring-2 focus:ring-zinc-500/20 focus:border-zinc-500/50 transition-all duration-200 resize-none"
                 />
               </div>
               <button
                 id="contact-submit-btn"
                 type="submit"
-                className="w-full py-3.5 rounded-xl bg-zinc-900 text-white font-semibold hover:opacity-90 hover:shadow-lg hover:shadow-black/50 focus:outline-none focus:ring-2 focus:ring-zinc-900 focus:ring-offset-2 transition-all duration-300 hover:-translate-y-0.5"
+                className="w-full py-3.5 rounded-xl bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 font-semibold hover:opacity-90 hover:shadow-lg hover:shadow-black/50 dark:hover:shadow-white/10 focus:outline-none focus:ring-2 focus:ring-zinc-900 focus:ring-offset-2 transition-all duration-300 hover:-translate-y-0.5"
               >
                 {t.sendBtn}
               </button>

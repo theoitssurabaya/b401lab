@@ -34,7 +34,7 @@ export function HeroSection() {
       {/* Solid background subtle grid pattern could go here, but keeping it clean for matte dark */}
 
       {/* Glowing orbs */}
-      <div className="absolute top-1/4 left-1/4 w-72 h-72 rounded-full bg-zinc-100 dark:bg-zinc-800/50 blur-3xl animate-float pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 w-72 h-72 rounded-full bg-zinc-100 dark:bg-white/5 blur-3xl animate-float pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-zinc-600/10 blur-3xl animate-float pointer-events-none" style={{ animationDelay: "3s" }} />
       <div className="absolute top-1/3 right-1/3 w-48 h-48 rounded-full bg-zinc-200/50 blur-3xl animate-float pointer-events-none" style={{ animationDelay: "1.5s" }} />
 
@@ -50,7 +50,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-100 dark:bg-zinc-800/50 border border-zinc-200 text-zinc-700 text-sm font-medium mb-8"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 text-zinc-700 text-sm font-medium mb-8"
         >
           <span className="w-2 h-2 rounded-full bg-zinc-400 animate-pulse" />
           {t.badge}
@@ -70,7 +70,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-zinc-600 dark:text-zinc-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
+          className="text-zinc-600 dark:text-zinc-300 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
         >
           {t.tagline}
         </motion.p>
@@ -114,14 +114,14 @@ export function HeroSection() {
           className="mt-32 text-left"
         >
           <div className="text-center mb-16 relative">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-zinc-100 dark:bg-zinc-800/50 border border-zinc-200 dark:border-zinc-700 text-zinc-700 dark:text-zinc-300 text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 text-zinc-700 dark:text-zinc-300 text-sm font-medium mb-4">
               {tAbout.sectionLabel}
             </span>
             <h2 className="font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-zinc-100 mb-5">
               {tAbout.heading}{" "}
               <span className="text-zinc-900 dark:text-zinc-100">{tAbout.headingAccent}</span>
             </h2>
-            <p className="text-zinc-600 dark:text-zinc-400 text-lg max-w-3xl mx-auto leading-relaxed">
+            <p className="text-zinc-600 dark:text-zinc-300 text-lg max-w-3xl mx-auto leading-relaxed">
               {tAbout.body}
             </p>
           </div>
@@ -130,13 +130,13 @@ export function HeroSection() {
             {tAbout.highlights.map((item, idx) => (
               <div
                 key={item.title}
-                className="card-glass rounded-2xl p-6 hover:bg-zinc-100 dark:bg-zinc-800/50 hover:border-zinc-200 dark:hover:border-zinc-700 hover:ring-2 hover:ring-zinc-300/50 transition-all duration-300 group"
+                className="card-glass rounded-2xl p-6 hover:bg-zinc-100 dark:hover:bg-zinc-800/50 hover:border-zinc-200 dark:hover:border-zinc-700 hover:ring-2 hover:ring-zinc-300/50 transition-all duration-300 group"
               >
-                <div className="w-12 h-12 rounded-xl bg-zinc-100 dark:bg-zinc-800/50 border border-zinc-200 dark:border-zinc-700 flex items-center justify-center text-zinc-700 dark:text-zinc-300 mb-4 group-hover:scale-110 group-hover:ring-2 group-hover:ring-zinc-300/50 transition-all duration-300">
+                <div className="w-12 h-12 rounded-xl bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 flex items-center justify-center text-zinc-700 dark:text-zinc-300 mb-4 group-hover:scale-110 group-hover:ring-2 group-hover:ring-zinc-300/50 transition-all duration-300">
                   {ICONS[idx]}
                 </div>
                 <h3 className="font-display font-semibold text-zinc-900 dark:text-zinc-100 text-lg mb-2">{item.title}</h3>
-                <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed">{item.desc}</p>
+                <p className="text-zinc-600 dark:text-zinc-300 text-sm leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>

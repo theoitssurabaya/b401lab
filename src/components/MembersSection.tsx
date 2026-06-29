@@ -43,13 +43,13 @@ export function MembersSection() {
           <div className="absolute top-0 left-0 w-48 md:w-64 opacity-40 hidden lg:block -translate-x-1/4 pointer-events-none z-20">
             <img src={robotImg} alt="UR Robot" className="w-full h-full object-contain robot-img-transparent animate-float" style={{ animationDelay: "0.5s" }} loading="lazy" />
           </div>
-          <span className="inline-block px-4 py-1.5 rounded-full bg-zinc-100 dark:bg-zinc-800/50 border border-zinc-200 text-zinc-600 dark:text-zinc-400 text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 text-zinc-700 dark:text-zinc-300 text-sm font-medium mb-4">
             {t.sectionLabel}
           </span>
           <h2 className="font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-zinc-100 mb-5">
             {t.heading} <span className="text-zinc-900 dark:text-zinc-100">{t.headingAccent}</span>
           </h2>
-          <p className="text-zinc-600 dark:text-zinc-400 text-lg max-w-2xl mx-auto">{t.body}</p>
+          <p className="text-zinc-600 dark:text-zinc-300 text-lg max-w-2xl mx-auto">{t.body}</p>
         </div>
 
         {/* Lecturers Grid */}
@@ -63,7 +63,7 @@ export function MembersSection() {
                 <div
                   key={lecturer.name}
                   onClick={() => setSelectedLecturer(lecturer)}
-                  className="card-glass rounded-2xl overflow-hidden border border-zinc-200 hover:border-zinc-300 hover:ring-2 hover:ring-zinc-300/50 hover:bg-zinc-100/50 transition-all duration-300 flex flex-col animate-fade-in cursor-pointer group shadow-sm hover:shadow-md"
+                  className="card-glass rounded-2xl overflow-hidden border border-zinc-200 dark:border-white/10 hover:border-zinc-300 hover:ring-2 hover:ring-zinc-300/50 hover:bg-zinc-100/50 transition-all duration-300 flex flex-col animate-fade-in cursor-pointer group shadow-sm hover:shadow-md"
                   style={{ animationDelay: `${0.2 + idx * 0.1}s` }}
                 >
                   {/* Photo Section */}
@@ -88,7 +88,7 @@ export function MembersSection() {
                       <p className="text-zinc-900 dark:text-zinc-100 font-semibold text-sm leading-snug">{lecturer.name}</p>
                       <p className="text-zinc-500 text-xs mt-1">{handleLecturerLang(lang, lecturer)?.role}</p>
                     </div>
-                    <div className="mt-3 pt-3 border-t border-zinc-200/60 flex items-center justify-between text-zinc-400 group-hover:text-zinc-600 dark:text-zinc-400 transition-colors">
+                    <div className="mt-3 pt-3 border-t border-zinc-200/60 flex items-center justify-between text-zinc-400 group-hover:text-zinc-600 dark:text-zinc-300 transition-colors">
                       <p className="text-[10px] font-medium truncate pr-3">{handleLecturerLang(lang, lecturer)?.specialty}</p>
                       <svg className="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -110,14 +110,14 @@ export function MembersSection() {
             {t.studentRoles.map((role, idx) => (
               <div
                 key={role.label}
-                className="card-glass rounded-2xl p-6 border border-zinc-200 text-center hover:border-zinc-300 transition-all duration-300 animate-fade-in"
+                className="card-glass rounded-2xl p-6 border border-zinc-200 dark:border-white/10 text-center hover:border-zinc-300 transition-all duration-300 animate-fade-in"
                 style={{ animationDelay: `${0.5 + idx * 0.1}s` }}
               >
                 <div className="text-4xl mb-3">{role.icon}</div>
                 <div className={`font-display font-bold text-4xl text-zinc-800 mb-2`}>
                   <AnimatedCounter value={`${role.count}+`} />
                 </div>
-                <div className="text-zinc-600 dark:text-zinc-400 text-sm">{role.label}</div>
+                <div className="text-zinc-600 dark:text-zinc-300 text-sm">{role.label}</div>
               </div>
             ))}
           </div>
@@ -132,7 +132,7 @@ export function MembersSection() {
             {t.assistants.map((assistant, idx) => (
               <div
                 key={idx}
-                className="card-glass rounded-2xl overflow-hidden border border-zinc-200 transition-all duration-300 flex flex-col animate-fade-in cursor-default group shadow-sm"
+                className="card-glass rounded-2xl overflow-hidden border border-zinc-200 dark:border-white/10 transition-all duration-300 flex flex-col animate-fade-in cursor-default group shadow-sm"
                 style={{ animationDelay: `${0.7 + idx * 0.1}s` }}
               >
                 {/* Photo Section */}
@@ -174,7 +174,7 @@ export function MembersSection() {
           />
 
           {/* Modal Content */}
-          <div className="relative w-full max-w-3xl max-h-[90vh] bg-white dark:bg-zinc-800 rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row border border-zinc-200/50">
+          <div className="relative w-full max-w-3xl max-h-[90vh] bg-white dark:bg-white/5 rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row border border-zinc-200 dark:border-white/10/50">
             {/* Close Button */}
             <button
               onClick={() => setSelectedLecturer(null)}
@@ -186,7 +186,7 @@ export function MembersSection() {
             </button>
 
             {/* Modal Image Area */}
-            <div className="w-full md:w-2/5 md:min-h-[400px] shrink-0 bg-zinc-100 dark:bg-zinc-800/50">
+            <div className="w-full md:w-2/5 md:min-h-[400px] shrink-0 bg-zinc-100 dark:bg-white/5">
               {selectedLecturer.imageUrl ? (
                 <img
                   src={selectedLecturer.imageUrl}
@@ -216,7 +216,7 @@ export function MembersSection() {
                     <h4 className="text-xs font-bold text-zinc-900 dark:text-zinc-100 uppercase tracking-wider mb-3">{(t as any).modalEducationLabel || "Education"}</h4>
                     <ul className="space-y-2">
                       {selectedLecturer.education.map((edu, i) => (
-                        <li key={i} className="text-sm text-zinc-600 dark:text-zinc-400 flex items-start gap-2.5">
+                        <li key={i} className="text-sm text-zinc-600 dark:text-zinc-300 flex items-start gap-2.5">
                           <span className="w-1.5 h-1.5 rounded-full bg-zinc-400 mt-1.5 shrink-0" />
                           <span className="leading-relaxed">{edu}</span>
                         </li>
@@ -228,7 +228,7 @@ export function MembersSection() {
                 {selectedLecturer.expertise && (
                   <div>
                     <h4 className="text-xs font-bold text-zinc-900 dark:text-zinc-100 uppercase tracking-wider mb-3">{(t as any).modalResearchLabel || "Research Interests"}</h4>
-                    <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                    <p className="text-sm text-zinc-600 dark:text-zinc-300 leading-relaxed">
                       {selectedLecturer.expertise}
                     </p>
                   </div>

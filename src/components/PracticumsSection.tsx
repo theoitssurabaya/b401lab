@@ -15,13 +15,13 @@ export function PracticumsSection() {
           <div className="absolute top-0 left-0 w-48 md:w-64 opacity-40 hidden lg:block -translate-x-1/4 pointer-events-none z-20">
             <img src={robotImg} alt="Nao Robot" className="w-full h-full object-contain animate-float" loading="lazy" />
           </div>
-          <span className="inline-block px-4 py-1.5 rounded-full bg-neutral-200/50 border border-neutral-300 text-neutral-700 text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 text-zinc-700 dark:text-zinc-300 text-sm font-medium mb-4">
             {t.sectionLabel}
           </span>
           <h2 className="font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-zinc-100 mb-5">
             {t.heading} <span className="text-zinc-900 dark:text-zinc-100">{t.headingAccent}</span>
           </h2>
-          <p className="text-zinc-600 dark:text-zinc-400 text-lg max-w-2xl mx-auto">{t.body}</p>
+          <p className="text-zinc-600 dark:text-zinc-300 text-lg max-w-2xl mx-auto">{t.body}</p>
         </div>
 
         {/* Practicum list */}
@@ -29,7 +29,7 @@ export function PracticumsSection() {
           {t.items.map((p, idx) => (
             <div
               key={p.code}
-              className="card-glass rounded-2xl p-6 border border-zinc-200 hover:border-zinc-300 hover:bg-zinc-100 dark:bg-zinc-800/50 hover:ring-2 hover:ring-zinc-300/50 transition-all duration-300 group animate-fade-in"
+              className="card-glass rounded-2xl p-6 border border-zinc-200 dark:border-white/10 hover:border-zinc-300 hover:bg-zinc-100 dark:bg-white/5 hover:ring-2 hover:ring-zinc-300/50 transition-all duration-300 group animate-fade-in"
               style={{ animationDelay: `${0.2 + idx * 0.1}s` }}
             >
               <div className="flex flex-col md:flex-row md:items-center gap-4">
@@ -38,10 +38,10 @@ export function PracticumsSection() {
                   <div className="flex flex-wrap items-center gap-3 mb-2">
                     <h3 className="font-display font-semibold text-zinc-900 dark:text-zinc-100 text-xl">{p.title}</h3>
                   </div>
-                  {p.desc && <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed mb-3">{p.desc}</p>}
+                  {p.desc && <p className="text-zinc-600 dark:text-zinc-300 text-sm leading-relaxed mb-3">{p.desc}</p>}
                   <div className="flex flex-wrap gap-2">
                     {p.topics.map((topic) => (
-                      <span key={topic} className="px-2.5 py-1 rounded-lg bg-white dark:bg-zinc-800 border border-zinc-200 text-zinc-600 dark:text-zinc-400 text-xs">
+                      <span key={topic} className="px-2.5 py-1 rounded-lg bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10 text-zinc-600 dark:text-zinc-300 text-xs">
                         {topic}
                       </span>
                     ))}

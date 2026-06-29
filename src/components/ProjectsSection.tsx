@@ -27,9 +27,9 @@ export function ProjectsSection() {
   const getStatusColor = (status: string) => {
     switch (status) {
       case "Completed": return "text-neutral-700 bg-neutral-200/50 border-neutral-300";
-      case "Active": return "text-zinc-600 dark:text-zinc-400 bg-zinc-100 dark:bg-zinc-800/50 border-zinc-200";
+      case "Active": return "text-zinc-600 dark:text-zinc-300 bg-zinc-100 dark:bg-white/5 border-zinc-200";
       case "Research": return "text-slate-700 bg-slate-200/50 border-slate-300";
-      default: return "text-zinc-600 dark:text-zinc-400 bg-white dark:bg-zinc-800 border-zinc-200";
+      default: return "text-zinc-600 dark:text-zinc-300 bg-white dark:bg-white/5 border-zinc-200";
     }
   };
 
@@ -42,13 +42,13 @@ export function ProjectsSection() {
           <div className="absolute top-0 right-0 w-48 md:w-64 opacity-40 hidden lg:block translate-x-1/4 pointer-events-none z-20">
             <img src={openmanipulatorImg} alt="Robot Arm" className="w-full h-full object-contain animate-float" style={{ animationDelay: "1s" }} loading="lazy" />
           </div>
-          <span className="inline-block px-4 py-1.5 rounded-full bg-slate-200/50 border border-slate-300 text-slate-700 text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 text-zinc-700 dark:text-zinc-300 text-sm font-medium mb-4">
             {t.sectionLabel}
           </span>
-          <h2 className="font-display font-bold text-3xl md:text-5xl text-zinc-900 dark:text-zinc-100 mb-5">
+          <h2 className="font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-zinc-100 mb-5">
             {t.heading} <span className="text-zinc-900 dark:text-zinc-100">{t.headingAccent}</span>
           </h2>
-          <p className="text-zinc-600 dark:text-zinc-400 text-lg max-w-2xl mx-auto">{t.body}</p>
+          <p className="text-zinc-600 dark:text-zinc-300 text-lg max-w-2xl mx-auto">{t.body}</p>
         </div>
 
         {/* Grid */}
@@ -58,7 +58,7 @@ export function ProjectsSection() {
             return (
               <div
                 key={project.title}
-                className="card-glass rounded-2xl overflow-hidden border border-zinc-200 hover:border-zinc-300 hover:ring-2 hover:ring-zinc-300/50 transition-all duration-300 group hover:-translate-y-1.5 hover:shadow-2xl hover:scale-[1.02] animate-fade-in"
+                className="card-glass rounded-2xl overflow-hidden border border-zinc-200 dark:border-white/10 hover:border-zinc-300 hover:ring-2 hover:ring-zinc-300/50 transition-all duration-300 group hover:-translate-y-1.5 hover:shadow-2xl hover:scale-[1.02] animate-fade-in"
                 style={{ animationDelay: `${0.2 + idx * 0.1}s` }}
               >
                 {/* Color header */}
@@ -88,10 +88,10 @@ export function ProjectsSection() {
                       {getStatusLabel(project.status)}
                     </span>
                   </div>
-                  <p className="text-zinc-600 dark:text-zinc-400 text-sm leading-relaxed mb-4">{project.desc}</p>
+                  <p className="text-zinc-600 dark:text-zinc-300 text-sm leading-relaxed mb-4">{project.desc}</p>
                   <div className="flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
-                      <span key={tag} className="px-2.5 py-1 rounded-lg bg-white dark:bg-zinc-800 border border-zinc-200 text-zinc-600 dark:text-zinc-400 text-xs">
+                      <span key={tag} className="px-2.5 py-1 rounded-lg bg-white dark:bg-white/5 border border-zinc-200 dark:border-white/10 text-zinc-600 dark:text-zinc-300 text-xs">
                         {tag}
                       </span>
                     ))}

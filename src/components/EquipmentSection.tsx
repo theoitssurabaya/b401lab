@@ -16,13 +16,13 @@ export function EquipmentSection() {
           <div className="absolute top-0 right-0 w-48 md:w-64 opacity-40 hidden lg:block translate-x-1/4 pointer-events-none z-20">
             <img src={robodogImg} alt="Robo Dog" className="w-full h-full object-contain animate-float" style={{ animationDelay: "1.5s" }} loading="lazy" />
           </div>
-          <span className="inline-block px-4 py-1.5 rounded-full bg-zinc-100 dark:bg-zinc-800/50 border border-zinc-200 text-zinc-700 text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-1.5 rounded-full bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 text-zinc-700 dark:text-zinc-300 text-sm font-medium mb-4">
             {t.sectionLabel}
           </span>
-          <h2 className="font-display font-bold text-3xl md:text-5xl text-zinc-900 dark:text-zinc-100 mb-5">
+          <h2 className="font-display font-bold text-4xl md:text-5xl text-zinc-900 dark:text-zinc-100 mb-5">
             {t.heading} <span className="text-zinc-900 dark:text-zinc-100">{t.headingAccent}</span>
           </h2>
-          <p className="text-zinc-600 dark:text-zinc-400 text-lg max-w-2xl mx-auto">{t.body}</p>
+          <p className="text-zinc-600 dark:text-zinc-300 text-lg max-w-2xl mx-auto">{t.body}</p>
         </div>
 
         {/* Equipment grid */}
@@ -30,7 +30,7 @@ export function EquipmentSection() {
           {t.items.map((item, idx) => (
             <div
               key={item.name}
-              className="card-glass rounded-2xl p-5 border border-zinc-200 hover:border-zinc-300 hover:bg-zinc-100/50 hover:ring-2 hover:ring-zinc-300/50 transition-all duration-300 group text-center hover:shadow-xl hover:-translate-y-1 animate-fade-in"
+              className="card-glass rounded-2xl p-5 border border-zinc-200 dark:border-white/10 hover:border-zinc-300 hover:bg-zinc-100/50 hover:ring-2 hover:ring-zinc-300/50 transition-all duration-300 group text-center hover:shadow-xl hover:-translate-y-1 animate-fade-in"
               style={{ animationDelay: `${0.2 + idx * 0.05}s` }}
             >
               <div className="text-3xl mb-3 group-hover:scale-110 transition-transform duration-300">
@@ -43,7 +43,7 @@ export function EquipmentSection() {
         </div>
 
         {/* Lab features */}
-        <div className="card-glass rounded-2xl p-8 border border-zinc-200 animate-fade-in" style={{ animationDelay: "0.5s" }}>
+        <div className="card-glass rounded-2xl p-8 border border-zinc-200 dark:border-white/10 animate-fade-in" style={{ animationDelay: "0.5s" }}>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {t.labFeatures.map((feat) => (
               <div key={feat.title} className="text-center">

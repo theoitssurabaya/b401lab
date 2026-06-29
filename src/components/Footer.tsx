@@ -19,7 +19,7 @@ export function Footer() {
   ];
 
   return (
-    <footer className="border-t border-zinc-200 bg-white dark:bg-zinc-800">
+    <footer className="border-t border-zinc-200 bg-white dark:bg-white/5">
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
           {/* Brand */}
@@ -68,7 +68,7 @@ export function Footer() {
                   href="https://www.its.ac.id/komputer/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-zinc-600 dark:text-zinc-400 hover:text-zinc-700 transition-colors duration-200"
+                  className="text-zinc-600 dark:text-zinc-300 hover:text-zinc-700 transition-colors duration-200"
                 >
                   its.ac.id/komputer↗
                 </a>
@@ -79,7 +79,7 @@ export function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-zinc-200 pt-8 flex flex-col items-center justify-center">
-          <p className="text-zinc-600 dark:text-zinc-400 text-sm">
+          <p className="text-zinc-600 dark:text-zinc-300 text-sm">
             © {year} {t.copyright}
           </p>
         </div>
