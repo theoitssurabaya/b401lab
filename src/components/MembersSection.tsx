@@ -3,7 +3,6 @@ import { useLanguage, type Language } from "../context/LanguageContext";
 import { translations } from "../contents/translations";
 import type { I_lecturers, I_assistant } from "@/contents/MembersContent/memberList";
 import { AnimatedCounter } from "./AnimatedCounter";
-import robotImg from "../assets/robots/ur.webp";
 
 const STUDENT_ROLE_COLORS = [
   "from-zinc-700 to-zinc-900",
@@ -39,10 +38,6 @@ export function MembersSection() {
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in relative" style={{ animationDelay: "0.1s" }}>
-          {/* Decorative image */}
-          <div className="absolute top-0 left-0 w-48 md:w-64 opacity-40 hidden lg:block -translate-x-1/4 pointer-events-none z-20">
-            <img src={robotImg} alt="UR Robot" className="w-full h-full object-contain robot-img-transparent animate-float" style={{ animationDelay: "0.5s" }} loading="lazy" />
-          </div>
           <span className="inline-block px-4 py-1.5 rounded-full bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 text-zinc-700 dark:text-zinc-300 text-sm font-medium mb-4">
             {t.sectionLabel}
           </span>

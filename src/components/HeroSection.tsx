@@ -4,7 +4,6 @@ import { useLanguage } from "../context/LanguageContext";
 import { translations } from "../contents/translations";
 import { handleHeroHeading } from "../contents/HeroContent/handleHeading";
 import { AnimatedCounter } from "./AnimatedCounter";
-import robotImg from "../assets/robots/unitreehumanoid.webp";
 
 const ICONS = [
   <svg key="research" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -38,10 +37,6 @@ export function HeroSection() {
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-zinc-600/10 blur-3xl animate-float pointer-events-none" style={{ animationDelay: "3s" }} />
       <div className="absolute top-1/3 right-1/3 w-48 h-48 rounded-full bg-zinc-200/50 blur-3xl animate-float pointer-events-none" style={{ animationDelay: "1.5s" }} />
 
-      {/* Decorative Robot */}
-      <div className="absolute bottom-0 right-[5%] w-64 md:w-96 opacity-60 hidden md:block pointer-events-none z-20">
-        <img src={robotImg} alt="Humanoid Robot" className="w-full h-full object-contain robot-img-transparent animate-float" />
-      </div>
 
       {/* Content */}
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
